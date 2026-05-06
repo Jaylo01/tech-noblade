@@ -568,3 +568,13 @@ function deleteProductOnServer(id) {
 
 
 
+
+function showAddProductModal() {
+    document.getElementById('modal-title').innerText = "Add New Item";
+    document.getElementById('p-id').value = "";
+    document.getElementById('p-game').value = "";
+    document.getElementById('p-name').value = "";
+    document.getElementById('p-price').value = "";
+    document.getElementById('p-stock').value = "0";
+    document.getElementById('product-modal').style.display = 'flex';
+}

@@ -3853,3 +3853,18 @@ img[alt*="Logo"], .logo-img, .cp-logo-img, .brand img {
     min-width: 250px !important;
     overflow: hidden !important;
 }
+
+/* --- PATCH v16: Print Format Recovery --- */
+.print-only-header {
+    height: auto !important;
+    min-height: 180px !important;
+    overflow: visible !important;
+    clear: both !important;
+    display: block !important;
+    padding-bottom: 30px !important;
+    box-sizing: content-box !important;
+}
+.print-only-header h1 {
+    line-height: 1.5 !important;
+    margin-bottom: 10px !important;
+}
