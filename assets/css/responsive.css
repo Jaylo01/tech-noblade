@@ -1,0 +1,247 @@
+/* Responsive Media Queries */
+
+/* Navbar Specific */
+.tagline-nav {
+    font-size: 0.72rem;
+    color: #0050FF;
+    font-style: italic;
+    font-weight: 700;
+    margin-top: -8px;
+    margin-left: 107px; /* Align with text start after 95px logo + 12px gap */
+    display: none;
+    opacity: 0.75;
+    letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+    .tagline-nav {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Global Spacing - Increased for breathing room */
+    .container { padding: 0 24px; }
+    main.container { padding: 24px !important; }
+    
+    /* Typography - More aggressive scaling for mobile feel */
+    h1 { font-size: 1.6rem !important; }
+    h2 { font-size: 1.4rem; }
+    .section-title { font-size: 1.45rem !important; margin-bottom: 20px !important; }
+    p, span, li { font-size: 0.9rem; }
+
+    /* Header & Navigation */
+    .navbar { padding: 0 24px !important; height: 110px !important; min-height: 110px !important; background: #ffffff !important; border-bottom: 2px solid #0050FF !important; display: flex !important; align-items: center !important; }
+    .navbar .container { 
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 100%;
+        padding: 0;
+    }
+    .logo-img { width: 220px !important; min-width: 220px !important; height: auto !important; display: block !important; object-fit: contain !important; }
+    /* Suppress the raw textual title globally on mobile so the massive 220px logo-img shines alone */
+    .logo { font-size: 0 !important; color: transparent !important; white-space: nowrap; margin-bottom: 0px; display: flex; align-items: center; gap: 0 !important; }
+    
+    .nav-toggle-btn {
+        flex-shrink: 0;
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+
+    /* Hide standard navigation text */
+    .nav-links li:not(:last-child) { display: none; }
+    .nav-links li { margin-left: 0; }
+
+    /* Disable side-nav logo clicking and safely push it below the close button matrix */
+    .side-menu .logo-link { pointer-events: none !important; cursor: default !important; }
+    
+    /* Side Nav Adjustment (Maintain massive logo inside side menu without crowding the right side) */
+    .side-menu .logo-img { width: 230px !important; min-width: 230px !important; max-width: 230px !important; height: auto !important; margin-top: 30px; margin-bottom: 25px; margin-left: -5px; }
+
+    /* Slideshow / Hero - Balanced for Mobile */
+    .splash-header { 
+        height: auto !important;
+        aspect-ratio: 4 / 3 !important; /* Taller ratio for mobile devices */
+        min-height: 280px !important; 
+        background: #001a4d !important;
+    }
+    .slide {
+        background-size: cover !important; /* Reverting to cover for "whole screen" effect */
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+    .hero-content { 
+        padding: 25px 15px; 
+        width: 88%; 
+        border-radius: 15px;
+        background: rgba(0, 0, 0, 0.45);
+    }
+    .hero-content h1 { font-size: 1.5rem !important; margin-bottom: 8px; }
+    .hero-content p { font-size: 0.85rem; }
+    .nav-dot { width: 7px; height: 7px; bottom: 20px; }
+
+    /* Grids & Layouts - "By Two's" */
+    .home-grid-actions { 
+        grid-template-columns: 1fr 1fr;
+        margin: 20px 0; 
+        gap: 10px;
+    }
+    .home-card-btn { 
+        padding: 20px 8px;
+        border-width: 2px;
+    }
+    .home-card-icon { width: 40px; height: 40px; margin-bottom: 8px; }
+    .home-card-btn h2 { font-size: 1rem; }
+
+    .category-grid { 
+        grid-template-columns: 1fr 1fr !important; 
+        gap: 10px;
+    }
+
+    .game-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px;
+    }
+    .game-card {
+        padding: 12px;
+        border-radius: 12px;
+    }
+    .game-icon { width: 70px; height: 70px; }
+    .game-card h3 { font-size: 0.95rem; }
+    .currency-desc { font-size: 0.75rem; }
+
+    .repair-content { 
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+    }
+    .repair-info { text-align: left !important; padding-bottom: 15px; }
+    .brand-list { align-items: flex-start !important; }
+
+    .payment-grid { grid-template-columns: 1fr !important; }
+
+    /* Buttons - Fixing overlap and "compressed" look */
+    .btn { 
+        padding: 10px 20px; 
+        font-size: 0.85rem !important; 
+    }
+    
+    .connect-btn, .btn-full {
+        width: 100%;
+        display: block;
+        padding: 12px !important;
+        font-size: 0.85rem !important;
+        border-radius: 8px !important; /* Synchronized radius */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box;
+    }
+.close-btn { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 1.5rem; }
+
+    .connect-btn {
+        margin-top: 15px !important;
+        margin-bottom: 12px !important; /* Explicit gap to prevent overlap */
+    }
+
+    .btn-full {
+        margin-top: 0 !important;
+    }
+
+    /* Cards & Sections */
+    .page-header { padding: 35px 15px; }
+    
+    .attractive-card { 
+        padding: 18px; 
+        border-radius: 10px; 
+    }
+    .attractive-card h2 { font-size: 1.2rem; }
+
+    /* Modals & Receipts */
+    .payment-panel, .maintenance-content, .modal-content {
+        width: 90% !important;
+        max-width: 360px;
+        padding: 15px !important;
+    }
+    .qr-container { width: 140px; height: 140px; }
+
+    /* Footer - Absolute Left Restoration */
+    footer { padding: 40px 0 20px 0 !important; }
+    .footer-grid, footer .footer-grid { 
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; 
+        gap: 30px 15px !important; 
+        text-align: left !important;
+        padding: 0 20px !important; /* Reduced from 40px to hit left edge more cleanly */
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+    .footer-col, footer .footer-col { 
+        width: 100% !important; 
+        min-width: 0 !important; 
+        flex: none !important;
+    }
+    .footer-col-left, footer .footer-col-left { 
+        grid-column: 1 / span 2 !important; 
+        text-align: left !important;
+        padding: 0 0 15px 0 !important;
+        margin: 0 !important;
+    }
+    .footer-col-middle, footer .footer-col-middle { text-align: left !important; }
+    .footer-col-right, footer .footer-col-right { text-align: right !important; }
+    
+    .footer-col h4, footer .footer-col h4 { 
+        margin-bottom: 12px !important; 
+        font-size: 1.15rem !important;
+    }
+    .footer-col ul, footer .footer-col ul { 
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .footer-col-middle ul { align-items: flex-start !important; }
+    .footer-col-right ul { align-items: flex-end !important; }
+    
+    .footer-col-left .logo-link {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        text-decoration: none !important;
+    }
+    .footer-col-left .logo {
+        margin: 0 !important;
+        text-align: left !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important; /* Stack logo above the text block */
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+    }
+    .footer-col-left p, footer .footer-col-left p {
+        text-align: left !important;
+        margin: 15px 0 0 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        opacity: 0.9 !important;
+    }
+    .footer-col-left .logo-img { 
+        width: 200px !important; 
+        height: auto !important; 
+        margin: 0 0 10px 0 !important; 
+        flex-shrink: 0 !important;
+    }
+    .footer-bottom { font-size: 0.8rem; padding: 20px 10px; border-top: 1px solid rgba(255,255,255,0.1); }
+}
+
+@media (max-width: 480px) {
+    .logo { font-size: 0.8rem !important; }
+    .hero-content h1 { font-size: 1.15rem !important; }
+    .btn { padding: 8px 15px; font-size: 0.8rem !important; }
+}

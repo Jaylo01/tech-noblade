@@ -1,0 +1,83 @@
+/* assets/css/reports.css - Print Optimization for Business Reports */
+
+#report-printable-area {
+    width: 100%;
+}
+
+/* Professional Report Header (Hidden on screen) */
+.print-only-header {
+    display: none;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 20px;
+}
+
+@media print {
+    /* Hide Navigation and UI Controls */
+    .sidebar, 
+    .admin-bottom-nav, 
+    .admin-mobile-header, 
+    .admin-header button, 
+    .admin-header div:last-child,
+    #reports-section > .admin-card > div:first-child,
+    .nav-item,
+    .btn,
+    .logout-m {
+        display: none !important;
+    }
+
+    /* Reset Main Content Layout */
+    .main-content {
+        margin-left: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        background: #fff !important;
+    }
+
+    /* Restore Colors */
+    body, .admin-card, .stat-card {
+        background: #fff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Professional Print Header */
+    .print-only-header {
+        display: block !important;
+    }
+
+    .print-only-header h1 {
+        margin: 0;
+        font-size: 24pt;
+        color: #000;
+    }
+
+    .print-only-header p {
+        margin: 5px 0 0;
+        font-size: 10pt;
+        color: #666;
+    }
+
+    /* Table Adjustments */
+    .order-table th, .order-table td {
+        padding: 8px !important;
+        font-size: 9pt !important;
+        border-bottom: 1px solid #ddd !important;
+    }
+
+    .stat-card {
+        border: 1px solid #eee !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
+
+    .stat-card .val {
+        font-size: 14pt !important;
+    }
+
+    /* Remove Scrollbars */
+    div {
+        overflow: visible !important;
+    }
+}

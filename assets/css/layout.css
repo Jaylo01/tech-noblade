@@ -1,0 +1,257 @@
+/* Generic Page Header (Replaces Slideshow on subpages) */
+.page-header {
+    background: linear-gradient(135deg, #0050FF 0%, #00D4FF 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    border-bottom: 5px solid #ffcc00;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+/* Redesigned content sections */
+.about-section, .contact-section {
+    padding: 80px 0;
+    background: #f8faff;
+}
+
+.attractive-card {
+    background: white;
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 15px 40px rgba(0, 80, 255, 0.08);
+    border: 1px solid #eef2f8;
+    margin-bottom: 40px;
+    transition: transform 0.3s ease;
+}
+
+.attractive-card:hover {
+    transform: translateY(-8px);
+}
+
+.attractive-card h2 {
+    color: #0050FF;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+/* Footer Section */
+footer {
+    background-color: #000000; /* Black background as requested */
+    color: #ffffff;
+    padding: 80px 0 40px 0;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-col-left {
+    text-align: left;
+}
+
+.footer-col-middle {
+    text-align: center;
+}
+
+.footer-col-right {
+    text-align: right;
+}
+
+.footer-col-middle ul, .footer-col-right ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-col-middle ul {
+    align-items: center;
+}
+
+.footer-col-right ul {
+    align-items: flex-end;
+}
+
+.footer-col:not(:first-child) ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.footer-col h4 {
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #00D4FF;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 500;
+}
+
+.footer-col ul li a:hover {
+    color: #00D4FF;
+}
+
+.app-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.app-badge {
+    height: 45px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    width: 35px;
+    height: 35px;
+    background: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0050FF;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    background: #00D4FF;
+    color: #ffffff;
+}
+
+.footer-bottom {
+    background-color: #0050FF;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ffffff;
+    font-weight: 800;
+    width: 100%;
+}
+
+/* Footer Refinements */
+.footer-logo { color: #ffffff; }
+.footer-logo-img { height: 100px; }
+.footer-tagline { margin-top: 15px; opacity: 0.9; }
+.footer-subtext { font-size: 0.85rem; opacity: 0.7; }
+
+/* Utility Classes (Replacing Inline Styles) */
+.close-btn-pos { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 1.5rem; }
+.flex-between-center { display: flex; justify-content: space-between; align-items: center; }
+.section-padding { padding: 60px 20px; }
+.mt-0 { margin-top: 0; }
+.mb-0 { margin-bottom: 0; }
+.mt-15 { margin-top: 15px; }
+.mt-50 { margin-top: 50px; }
+.mb-25 { margin-bottom: 25px; }
+.mb-50 { margin-bottom: 50px; }
+.pt-100 { padding-top: 100px; }
+.text-center { text-align: center; }
+.ls-none { list-style: none; }
+.fs-1-1 { font-size: 1.1rem; }
+.fs-1-5 { font-size: 1.5rem; }
+.lh-2-5 { line-height: 2.5; }
+.opacity-045 { opacity: 0.45; }
+.opacity-07 { opacity: 0.7; }
+.opacity-09 { opacity: 0.9; }
+
+/* Navigation & Menu Helpers */
+.nav-link-static { color: #202124; text-decoration: none; font-weight: bold; }
+.nav-link-brand-footer { color: #ffffff; text-decoration: none; }
+.logo-img-footer { height: 100px; width: auto; }
+
+/* Stock Handling */
+.stock-badge-container { font-size: 0.8rem; margin-bottom: 15px; color: #666; }
+.stock-val-accent { font-weight: bold; color: #0050FF; }
+
+
+/* Contact Grid */
+.contact-grid-main {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.contact-info-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-accent-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    background: #0050FF;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.header-padding-contact {
+    padding: 100px 0 60px 0;
+}
+
+.section-padding-contact {
+    padding: 60px 0 100px 0;
+}
+
+/* About Grid */
+.feature-small-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .contact-grid-main {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,163 @@
+/* Sidebar Toggle (Checkbox Hack) */
+.side-menu-toggle {
+    display: none;
+}
+
+/* Sidebar Navigation */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -350px;
+    width: 300px;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 1000;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 2px 0 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.side-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+    display: none;
+    backdrop-filter: blur(4px);
+}
+
+.side-menu-toggle:checked ~ .side-menu {
+    left: 0;
+}
+
+.side-menu-toggle:checked ~ .side-menu-overlay {
+    display: block;
+}
+
+.side-menu h3 {
+    color: #0050FF;
+    margin-bottom: 20px;
+    font-weight: 800;
+    border-bottom: 2px solid #00D4FF;
+    padding-bottom: 10px;
+}
+
+.side-menu a {
+    text-decoration: none;
+    color: #202124;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.side-menu a:hover {
+    background-color: #f0f7ff;
+    color: #0050FF;
+    padding-left: 20px;
+}
+
+/* Header Navigation (White with Blue links) */
+.navbar {
+    background-color: #ffffff;
+    padding: 15px 0;
+    border-bottom: 3px solid #0050FF; /* Vibrant Blue border */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logo {
+    color: #0050FF; /* Blue Logo Text */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin: 0;
+}
+
+.logo-img {
+    height: 95px; /* Increased from 60px */
+    width: auto;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 25px;
+    list-style: none; /* Explicitly remove any bullets */
+}
+
+.nav-links a {
+    color: #0050FF;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00D4FF;
+}
+
+.nav-toggle-btn {
+    background: #0050FF;
+    color: white; /* Vibrant Blue */
+    padding: 10px 15px;
+    border-radius: 50%; /* Circle for the icon */
+    text-decoration: none;
+    font-weight: 900;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+}
+
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Auth Nav Section Helpers */
+.nav-auth-divider { border:none; border-top:1px solid rgba(0,0,0,0.08); margin:18px 0; }
+.nav-auth-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:1.5px; color:rgba(0,0,0,0.35); padding:0; display:block; margin-bottom:8px; }
+.nav-logout-btn { color:#ff6b7a !important; }
+.nav-admin-link { opacity:0.45; font-size:0.82rem; }
+.nav-auth-divider-thin { border:none; border-top:1px solid rgba(0,0,0,0.07); margin:14px 0; }

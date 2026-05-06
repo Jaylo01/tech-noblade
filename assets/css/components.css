@@ -1,0 +1,373 @@
+/* About Content Section */
+.about-content {
+    background-color: #f8f9fa;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #444;
+}
+
+/* Repair Section */
+.repair-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.repair-info {
+    padding-right: 20px;
+}
+
+.repair-info h3 {
+    margin-bottom: 20px;
+    color: #0050FF;
+    font-size: 1.8em;
+    font-weight: 800;
+}
+
+.brand-list {
+    list-style-type: none;
+    margin-top: 25px;
+}
+
+.brand-list li {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-icon {
+    width: 1.5em;
+    height: 1.5em;
+    filter: brightness(0) saturate(100%) invert(67%) sepia(97%) saturate(443%) hue-rotate(352deg) brightness(101%) contrast(101%);
+}
+
+.repair-form-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.repair-form-container h3 {
+    margin-bottom: 25px;
+    color: #0050FF;
+    border-bottom: 2px solid #00D4FF;
+    padding-bottom: 10px;
+    font-weight: 800;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #0050FF;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    background-color: #f8f9fa;
+    color: #202124;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    border-color: #0050FF;
+    outline: none;
+}
+
+/* Product Catalog */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.game-card {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: #00D4FF;
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.2);
+}
+
+.game-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 4px solid #00D4FF;
+    object-fit: cover;
+}
+
+.game-card h3 {
+    margin-bottom: 10px;
+    color: #0050FF;
+    font-weight: 800;
+}
+
+.currency-desc {
+    color: #666;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Contact Section */
+.contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.contact-box {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.contact-box h3 {
+    margin-bottom: 10px;
+    color: #0050FF;
+    font-weight: 800;
+}
+
+.contact-form .btn {
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.contact-card-icon {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 15px;
+    filter: brightness(0) saturate(100%) invert(20%) sepia(87%) saturate(4171%) hue-rotate(222deg) brightness(101%) contrast(105%); /* Tech Blue */
+}
+
+/* Modals & Maintenance */
+.maintenance-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#maint-toggle:checked ~ .maintenance-overlay {
+    display: flex !important;
+}
+
+.maintenance-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    animation: zoomIn 0.3s ease-out;
+}
+
+.maintenance-content h3 {
+    color: #ff3b3b;
+    margin-bottom: 15px;
+}
+
+.close-maint {
+    display: inline-block;
+    margin-top: 20px;
+    color: #0050FF;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Status Tracker */
+.status-tracker {
+    max-width: 650px;
+    margin: 20px auto 40px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+}
+
+.status-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.status-steps::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #f0f0f0;
+    z-index: 1;
+}
+
+.status-step {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100px;
+}
+
+.step-circle {
+    width: 32px;
+    height: 32px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #999;
+    transition: all 0.5s;
+    border: 2px solid #fff;
+}
+
+.status-step.active .step-circle {
+    background: #0050FF;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0, 80, 255, 0.4);
+}
+
+.status-step.completed .step-circle {
+    background: #00D4FF;
+    color: #fff;
+}
+
+.step-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #999;
+}
+
+.status-step.active .step-label {
+    color: #0050FF;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(to right, #0050FF, #00D4FF);
+    transition: width 2s ease-in-out;
+}
+
+.msg-sent-toggle {
+    display: none !important;
+}
+
+.tn-success-overlay {
+    display: none !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.msg-sent-toggle:checked ~ .tn-success-overlay {
+    display: flex !important;
+}
+
+.tn-success-overlay h2 { font-size: 3rem; margin-bottom: 15px; }
+.tn-success-overlay p { font-size: 1.2rem; opacity: 0.9; }
+
+.close-success {
+    margin-top: 30px;
+    background: white;
+    color: #0050FF;
+    padding: 12px 40px;
+    border-radius: 50px;
+    font-weight: 800;
+    cursor: pointer;
+}
+/* Auth & Success Modals */
+.modal-overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:9999; display:flex; justify-content:center; align-items:center; }
+.modal-card { background:#fff; border-radius:16px; padding:40px 30px; max-width:400px; width:90%; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,0.3); animation: modalSlideIn 0.3s ease; }
+.modal-icon-box { width:64px; height:64px; border-radius:50%; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; }
+.modal-icon-warning { background:#FFF3E0; }
+.modal-title { margin:0 0 10px; font-size:1.3rem; color:#333; font-weight: 800; }
+.modal-text { color:#666; font-size:0.95rem; margin:0 0 25px; line-height:1.5; }
+.modal-actions { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+.modal-btn-cancel { margin-top:20px; background:none; border:none; color:#999; cursor:pointer; font-size:0.85rem; padding:8px; }
+
+@keyframes modalSlideIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.success-card { max-width: 400px; text-align: center; padding: 40px; border: 4px solid #00D4FF; margin: auto; }
+.success-title { color: #0050FF; margin-bottom: 20px; font-weight: 800; }
+.success-text { color: #555; margin-bottom: 30px; }

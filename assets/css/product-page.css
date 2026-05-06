@@ -1,0 +1,28 @@
+/* Product/Pricelist Page Styles */
+.product-main { padding: 60px 20px; }
+.product-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+.product-title { margin-bottom: 0 !important; }
+.btn-back-product { padding: 10px 25px; font-size: 0.9rem; background: #f0f7ff; color: #0050FF; box-shadow: none; border: 1px solid #0050FF; }
+.btn-back-product:hover { background: #0050FF; color: #fff; }
+
+.product-form-container { display: block; margin: 0 auto; max-width: 500px; position: static; }
+.product-form-group { margin-bottom: 25px; }
+.product-form-label { display: block; margin-bottom: 8px; font-weight: bold; color: #0050FF; }
+.product-form-input { width: 100%; padding: 12px; border: 2px solid #eee; border-radius: 12px; outline: none; transition: 0.3s; }
+.product-form-input:focus { border-color: #0050FF; }
+
+.qty-controls { display: flex; align-items: center; gap: 10px; }
+.btn-qty { padding: 5px 15px; background: #eee; color: #333; font-weight: bold; border: none; border-radius: 8px; cursor: pointer; }
+.btn-qty:hover { background: #ddd; }
+.input-qty { width: 60px; text-align: center; border: 2px solid #eee; border-radius: 8px; padding: 10px; font-weight: bold; }
+.stock-label { font-size: 0.9rem; color: #666; margin-left: 10px; }
+
+.btn-full { width: 100%; }
+.mt-20 { margin-top: 20px; }
+
+/* Responsive Adjustments for Product Page */
+@media (max-width: 600px) {
+    .product-header-row { flex-direction: column; align-items: flex-start; gap: 15px; }
+    .product-main { padding: 30px 15px; }
+    .btn-back-product { width: 100%; text-align: center; }
+}

@@ -1,0 +1,12 @@
+@import 'base.css';
+@import 'animations.css';
+@import 'navigation.css';
+@import 'components.css';
+@import 'layout.css';
+@import 'payment.css';
+@import 'receipt.css';
+@import 'product-page.css';
+@import 'home.css';
+@import 'admin.css';
+@import 'reports.css';
+@import 'responsive.css';
