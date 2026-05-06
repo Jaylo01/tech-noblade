@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,7 +14,7 @@
     <input type="checkbox" id="side-menu-toggle" class="side-menu-toggle">
     <div class="side-menu-overlay"></div>
     <aside class="side-menu">
-        <label for="side-menu-toggle" class="close-btn close-btn-pos">�</label>
+        <label for="side-menu-toggle" class="close-btn close-btn-pos">&times;</label>
         <a href="../index.php" class="logo-link">
             <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Logo"> Tech Noblade</h2>
         </a>
@@ -42,7 +42,7 @@
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../shared/about.php">About</a></li>
                     <li><a href="../shared/contact.php">Contact</a></li>
-                    <li><label for="side-menu-toggle" class="nav-toggle-btn">☰</label></li>
+                    <li><label for="side-menu-toggle" class="nav-toggle-btn">â˜°</label></li>
                 </ul>
             </nav>
         </div>
@@ -50,7 +50,7 @@
 
     <main class="container section-padding text-center">
         <div class="flex-between-center mb-20 px-20">
-            <a href="products.php" class="btn btn-outline-blue py-8 px-20 fs-0-9">← Back to Products</a>
+            <a href="products.php" class="btn btn-outline-blue py-8 px-20 fs-0-9">â† Back to Products</a>
             <h2 class="section-title mb-0">Payment Method</h2>
             <div class="spacer-140"></div>
         </div>
@@ -96,7 +96,7 @@
     
     <!-- GCash Panel -->
     <div id="gcash-panel" class="payment-panel">
-        <span class="payment-panel-close-btn">�</span>
+        <span class="payment-panel-close-btn">×</span>
         <div class="qr-container">
             <img src="../assets/images/qr-img-rollrick.jpeg" class="qr-image" alt="GCash QR Code">
         </div>
@@ -123,7 +123,7 @@
 
     <!-- Maya Panel -->
     <div id="maya-panel" class="payment-panel">
-        <span class="payment-panel-close-btn">�</span>
+        <span class="payment-panel-close-btn">×</span>
         <div class="qr-container">
             <img src="../assets/images/qr-img-rollrick.jpeg" class="qr-image" alt="Maya QR Code">
         </div>
@@ -150,7 +150,7 @@
 
     <!-- OTC Panel -->
     <div id="otc-panel" class="payment-panel">
-        <span class="payment-panel-close-btn">�</span>
+        <span class="payment-panel-close-btn">×</span>
         <h3 class="color-tech-blue">Over the Counter</h3>
         <p class="color-666">Pay manually to Tech Noblade staff. Then click below.</p>
         <div class="bg-f8f9fa p-15 br-12 my-20">
@@ -166,39 +166,9 @@
     </div>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-col-left">
-                    <div class="footer-logo-block">
-                        <img src="../assets/images/logo.jpeg" class="footer-logo-img" alt="Logo">
-                        <h2 class="color-fff m-0">Tech Noblade</h2>
-                        <p class="footer-tagline-text">"Smart Solutions for Phones and Gamers."</p>
-                    </div>
-                </div>
-
-                <div class="footer-col footer-col-middle">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><a href="products.php">Game Top-Up</a></li>
-                        <li><a href="repair.php">Tech Repair</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col footer-col-right">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="../shared/about.php">About</a></li>
-                        <li><a href="../shared/contact.php">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Tech Noblade & Top Up. All rights reserved.</p>
-        </div>
-    </footer>
+    <?php include '../shared/partials/footer.php'; ?>
     <script src="../assets/js/payment.js?v=<?php echo time(); ?>"></script>
 <?php include '../shared/partials/auth-modal.php'; ?>
 </body>
 </html>
+

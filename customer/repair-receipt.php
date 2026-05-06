@@ -14,7 +14,7 @@
     <input type="checkbox" id="side-menu-toggle" class="side-menu-toggle">
     <div class="side-menu-overlay"></div>
     <aside class="side-menu">
-        <label for="side-menu-toggle" class="close-btn close-btn-pos">âœ•</label>
+        <label for="side-menu-toggle" class="close-btn close-btn-pos">&times;</label>
         <a href="../index.php" class="logo-link">
             <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Logo"> Tech Noblade</h2>
         </a>
@@ -41,7 +41,7 @@
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../shared/about.php">About</a></li>
                     <li><a href="../shared/contact.php">Contact</a></li>
-                    <li><label for="side-menu-toggle" class="nav-toggle-btn">â˜°</label></li>
+                    <li><label for="side-menu-toggle" class="nav-toggle-btn"><img src="../assets/images/icon-menu-bars.svg" class="icon-menu-img"></label></li>
                 </ul>
             </nav>
         </div>
@@ -103,7 +103,7 @@
                 <!-- Diagnostic Quote -->
                 <div id="quote-card" class="product-summary-card mb-20 hidden">
                     <h4 class="fs-0-8 color-warning text-uppercase letter-spacing-1">Technician's Diagnostic Quote</h4>
-                    <div id="quote-value" class="fs-2-0 font-weight-900 color-tech-dark">â‚±0.00</div>
+                    <div id="quote-value" class="fs-2-0 font-weight-900 color-tech-dark">&#8369;0.00</div>
                     <p class="fs-0-85 color-666">Please confirm via contact for final approval.</p>
                 </div>
 
@@ -251,7 +251,7 @@
 
                 if (data.diagnostic_quote) {
                     document.getElementById('quote-card').classList.remove('hidden');
-                    document.getElementById('quote-value').innerText = 'â‚±' + parseFloat(data.diagnostic_quote).toLocaleString();
+                    document.getElementById('quote-value').innerText = '&#8369;' + parseFloat(data.diagnostic_quote).toLocaleString();
                 }
 
                 const status = (data.status || 'pending').toLowerCase();

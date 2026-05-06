@@ -3794,3 +3794,24 @@ img[alt*="Logo"], .logo-img, .cp-logo-img, .brand img {
 .game-group.open .group-chevron {
     transform: rotate(180deg) !important;
 }
+
+/* --- PATCH v14: Receipt Sync & Symbol Stability --- */
+
+.receipt-logo {
+    display: block !important;
+    margin: 0 auto 10px auto !important; /* Forces centering */
+}
+
+/* Smooth transition for walker to sync with progress bar */
+#walking-anim {
+    transition: left 1.5s ease-in-out !important;
+}
+
+/* Make chevron a text element instead of an image for guaranteed load */
+.group-chevron {
+    font-size: 1.2rem !important;
+    color: #0050FF !important;
+    display: inline-block !important;
+    transition: transform 0.3s ease !important;
+    user-select: none !important;
+}
