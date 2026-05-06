@@ -3868,3 +3868,47 @@ img[alt*="Logo"], .logo-img, .cp-logo-img, .brand img {
     line-height: 1.5 !important;
     margin-bottom: 10px !important;
 }
+
+/* --- PATCH v17: Absolute Print Layout Enforcement --- */
+@media print {
+    .print-only-header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        height: auto !important;
+        min-height: max-content !important;
+        border-bottom: 2px solid #000 !important;
+        padding-bottom: 20px !important;
+        margin-bottom: 20px !important;
+        overflow: visible !important;
+    }
+    
+    .print-only-header img {
+        position: relative !important;
+        display: block !important;
+        width: 150px !important;
+        height: auto !important;
+        max-height: 150px !important;
+        object-fit: contain !important;
+        margin: 0 auto 15px auto !important;
+        float: none !important;
+    }
+    
+    .print-only-header h1 {
+        position: relative !important;
+        display: block !important;
+        color: #0050FF !important;
+        font-size: 24pt !important;
+        margin: 0 0 5px 0 !important;
+        white-space: normal !important;
+        float: none !important;
+        line-height: 1.2 !important;
+    }
+    
+    .print-only-header p {
+        position: relative !important;
+        display: block !important;
+        margin: 0 !important;
+        float: none !important;
+    }
+}
