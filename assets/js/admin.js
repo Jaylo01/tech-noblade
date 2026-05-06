@@ -1,4 +1,4 @@
-/**
+﻿/**
  * admin.js - Centralized administrative logic for Tech Noblade.
  * Handles dashboard analytics, order processing, inventory management, and repair tracking.
  */
@@ -56,7 +56,7 @@ function loadAnalytics() {
     fetch('../api/api_stats.php')
         .then(res => res.json())
         .then(data => {
-            document.getElementById('stat-revenue').innerText = '₱' + data.total_revenue.toLocaleString();
+            document.getElementById('stat-revenue').innerText = 'Ã¢â€šÂ±' + data.total_revenue.toLocaleString();
             document.getElementById('stat-pending').innerText = data.pending_orders;
             document.getElementById('stat-repairs').innerText = data.active_repairs;
             document.getElementById('stat-low-stock').innerText = data.low_stock_count;
@@ -140,7 +140,7 @@ function loadOrdersFromServer() {
                     <td data-label="Order ID" class="font-weight-bold">#${order.order_id}</td>
                     <td data-label="Game">${order.game}</td>
                     <td data-label="Item">${order.qty}x ${order.item}</td>
-                    <td data-label="Total">₱${parseFloat(order.total).toLocaleString()}</td>
+                    <td data-label="Total">Ã¢â€šÂ±${parseFloat(order.total).toLocaleString()}</td>
                     <td data-label="Payment Ref" class="word-break-all"><code class="ref-badge-alt">${order.payment_ref || '---'}</code></td>
                     <td data-label="Status"><span class="status-badge status-${order.status.toLowerCase()}">${order.status}</span></td>
                     <td data-label="" class="white-space-nowrap">
@@ -173,7 +173,7 @@ function loadReferencesTable() {
                     <td data-label="Order ID" class="font-weight-bold">#${order.order_id}</td>
                     <td data-label="Method">${order.method || 'N/A'}</td>
                     <td data-label="Reference" class="word-break-all"><strong class="color-tech-blue">${order.payment_ref}</strong></td>
-                    <td data-label="Amount">₱${parseFloat(order.total).toLocaleString()}</td>
+                    <td data-label="Amount">Ã¢â€šÂ±${parseFloat(order.total).toLocaleString()}</td>
                     <td data-label="Status"><span class="status-badge status-${order.status.toLowerCase()}">${order.status}</span></td>
                     <td data-label="Date" class="fs-0-85 color-666">${new Date(order.timestamp).toLocaleString()}</td>
                 `;
@@ -221,16 +221,14 @@ function loadProductsFromServer() {
                 if (openGroups.has(game)) groupDiv.classList.add('open');
                 
                 groupDiv.innerHTML = `
-                    <div class="group-header" onclick="this.parentElement.classList.toggle('open')">
-                        <span>${game} <small style="opacity:0.5; margin-left:8px;">(${groups[game].length} Tiers)</small></span>
-                    </div>
+                    <div class="group-header" onclick="this.parentElement.classList.toggle('open')"><span>${game} <small style="opacity:0.5; margin-left:8px;">(${groups[game].length} Tiers)</small></span><img src="/tech-noblade/assets/images/icon-chevron-down.svg" class="group-chevron"></div>
                     <div class="group-content">
                         <div class="p-10 flex flex-column gap-10">
                             ${groups[game].map(item => `
                                 <div class="inventory-item-row">
                                     <div class="item-info">
                                         <h4>${item.item_name}</h4>
-                                        <p>Price: <span class="color-tech-blue font-weight-700">₱${parseFloat(item.price).toLocaleString()}</span></p>
+                                        <p>Price: <span class="color-tech-blue font-weight-700">â‚±${parseFloat(item.price).toLocaleString()}</span></p>
                                     </div>
                                     <div class="item-actions">
                                         <div class="flex align-center gap-10 bg-f8f9fa p-8 br-12 border-1-eee">
@@ -240,7 +238,7 @@ function loadProductsFromServer() {
                                         </div>
                                         <div class="flex gap-8">
                                             <button class="btn btn-small btn-edit-premium" onclick="editProduct(${item.id}, '${item.game.replace(/'/g, "\\'")}', '${item.item_name.replace(/'/g, "\\'")}', ${item.price}, ${item.stock})">Edit</button>
-                                            <button class="btn btn-small btn-delete-premium" onclick="if(confirm('Delete?')) deleteProductOnServer(${item.id})">�</button>
+                                            <button class="btn btn-small btn-delete-premium" onclick="if(confirm('Delete this item?')) deleteProductOnServer(${item.id})">Delete</button>
                                         </div>
                                     </div>
                                 </div>
@@ -370,7 +368,7 @@ function viewRepairDetails(id) {
                 <div class="admin-card admin-card-modal">
                     <div class="flex-between-center mb-20">
                         <h2 class="m-0">Repair Details</h2>
-                        <span onclick="this.closest('#repair-detail-modal').style.display='none'" class="pointer fs-1-5">�</span>
+                        <span onclick="this.closest('#repair-detail-modal').style.display='none'" class="pointer fs-1-5">Ã—</span>
                     </div>
                     
                     <div class="detail-grid-2">
@@ -517,7 +515,7 @@ function loadReport(period) {
         .then(res => res.json())
         .then(data => {
             // Update Overview Cards
-            document.getElementById('rep-revenue').innerText = '₱' + data.overview.revenue.toLocaleString();
+            document.getElementById('rep-revenue').innerText = 'Ã¢â€šÂ±' + data.overview.revenue.toLocaleString();
             document.getElementById('rep-orders').innerText = data.overview.orders;
             document.getElementById('rep-repairs').innerText = data.overview.repairs_completed + ' / ' + data.overview.repairs_total;
             document.getElementById('rep-game').innerText = data.overview.top_game;
@@ -535,7 +533,7 @@ function loadReport(period) {
                     <td data-label="ID">#${row.order_id}</td>
                     <td data-label="Game">${row.game}</td>
                     <td data-label="Item">${row.item}</td>
-                    <td data-label="Total">₱${parseFloat(row.total).toLocaleString()}</td>
+                    <td data-label="Total">Ã¢â€šÂ±${parseFloat(row.total).toLocaleString()}</td>
                     <td data-label="Date">${new Date(row.timestamp).toLocaleDateString()}</td>
                 `;
                 tbody.appendChild(tr);
@@ -564,3 +562,6 @@ function deleteProductOnServer(id) {
     })
     .catch(err => console.error('Error deleting product:', err));
 }
+
+
+

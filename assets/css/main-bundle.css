@@ -3636,3 +3636,161 @@ footer {
 .icon-small-blue { width: 20px !important; height: 20px !important; margin-right: 12px !important; filter: brightness(0) saturate(100%) invert(21%) sepia(94%) saturate(4615%) hue-rotate(224deg) brightness(101%) contrast(106%) !important; }
 .icon-tiny { width: 16px !important; height: 16px !important; margin-right: 8px !important; filter: brightness(0) invert(1) !important; }
 
+
+/* --- PATCH v11: Final Layout & Icon Polish --- */
+
+/* 1. Tracker Layering: Move line BEHIND circles */
+.tracker-line-container {
+    z-index: 1 !important; /* Move to lowest layer in the tracker */
+}
+
+.status-steps-overlay {
+    z-index: 10 !important; /* Circles on top of the line */
+}
+
+.walking-anim-pos {
+    z-index: 20 !important; /* Character on top of everyone */
+}
+
+/* 2. Admin Inventory: Stable Dropdown & Button UI */
+.group-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.group-chevron {
+    width: 18px !important;
+    height: 18px !important;
+    transition: transform 0.3s ease !important;
+    opacity: 0.6 !important;
+}
+
+.game-group.open .group-chevron {
+    transform: rotate(180deg) !important;
+}
+
+.btn-delete-premium {
+    background-color: #ff4757 !important;
+    color: white !important;
+    font-weight: 600 !important;
+    border: none !important;
+}
+
+/* 3. Sidenav Toggle Icon */
+.icon-menu-img {
+    width: 28px !important;
+    height: 28px !important;
+    filter: brightness(0) invert(1) !important; /* White */
+    cursor: pointer !important;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+}
+
+/* --- PATCH v12: Logo Restoration & Anti-Stretching --- */
+
+/* 1. Desktop Header Logo: Robust & Proportional */
+.logo-img {
+    width: 300px !important;
+    height: auto !important;
+    min-width: 300px !important;
+    max-height: none !important; /* Remove height constraint to prevent squishing */
+    object-fit: contain !important; /* Force aspect-ratio preservation */
+    transition: all 0.3s ease !important;
+}
+
+/* 2. Mobile Header Logo: Crisp & Clear */
+.brand img {
+    width: 180px !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+.cp-mobile-header .brand img {
+    width: 160px !important;
+    height: auto !important;
+}
+
+/* 3. Sidebar Logo: Dominant Brand Identity */
+.cp-logo-img {
+    width: 250px !important;
+    height: auto !important;
+    min-width: 250px !important;
+    object-fit: contain !important;
+}
+
+/* 4. Global Image Safety: Prevent stretching across ALL logos */
+img[alt*="Logo"], .logo-img, .cp-logo-img, .brand img {
+    aspect-ratio: auto !important;
+    display: block !important;
+}
+
+/* 5. Menu Icon Sizing for Mobile */
+.icon-menu-img {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 2px !important;
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        width: 180px !important;
+        min-width: 180px !important;
+    }
+}
+
+/* --- PATCH v13: Absolute Brand Stability & Upscaling --- */
+
+.logo-img, .cp-logo-img, .brand img {
+    width: 320px !important;
+    min-width: 320px !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+}
+
+.cp-logo-img {
+    width: 260px !important;
+    min-width: 260px !important;
+}
+
+@media (max-width: 768px) {
+    .logo-img, .brand img, .cp-mobile-header .brand img {
+        width: 200px !important;
+        min-width: 200px !important;
+    }
+}
+
+.logo-link, .cp-logo-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    transform: none !important;
+}
+
+/* Ensure Group Chevron is visible and pointing right by default, down when open */
+.group-header {
+    cursor: pointer !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-right: 15px !important;
+}
+
+.group-chevron {
+    width: 20px !important;
+    height: 20px !important;
+    filter: brightness(0) saturate(100%) invert(21%) sepia(94%) saturate(4615%) hue-rotate(224deg) brightness(101%) contrast(106%) !important;
+    transition: transform 0.3s ease !important;
+}
+
+.game-group.open .group-chevron {
+    transform: rotate(180deg) !important;
+}

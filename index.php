@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 session_start();
 $is_customer   = !empty($_SESSION['customer_id']) && ($_SESSION['role'] ?? '') === 'customer';
 $customer_name = $is_customer ? htmlspecialchars($_SESSION['customer_name']) : '';
@@ -19,7 +19,7 @@ $customer_name = $is_customer ? htmlspecialchars($_SESSION['customer_name']) : '
     <input type="checkbox" id="side-menu-toggle" class="side-menu-toggle">
     <div class="side-menu-overlay"></div>
     <aside class="side-menu">
-        <label for="side-menu-toggle" class="close-btn close-btn-pos">�</label>
+        <label for="side-menu-toggle" class="close-btn close-btn-pos">×</label>
         <a href="index.php" class="logo-link">
             <h2 class="logo"><img src="assets/images/logo.jpeg" class="logo-img" alt="Logo"></h2>
         </a>
@@ -47,7 +47,7 @@ $customer_name = $is_customer ? htmlspecialchars($_SESSION['customer_name']) : '
                     <li><a href="index.php">Home</a></li>
                     <li><a href="shared/about.php">About</a></li>
                     <li><a href="shared/contact.php">Contact</a></li>
-                    <li><label for="side-menu-toggle" class="nav-toggle-btn">☰</label></li>
+                    <li><label for="side-menu-toggle" class="nav-toggle-btn"><img src="assets/images/icon-menu-bars.svg" class="icon-menu-img"></label></li>
                 </ul>
             </nav>
         </div>
