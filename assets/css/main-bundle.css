@@ -1,4 +1,4 @@
-﻿/* Basic Reset */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -2204,7 +2204,7 @@ footer {
 .game-group { background: #fff; border-radius: 12px; border: 1px solid #eef2f6; overflow: hidden; margin-bottom: 10px; }
 .group-header { padding: 15px 20px; background: #f8faff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #000c24; transition: 0.2s; }
 .group-header:hover { background: #f1f5f9; }
-.group-header::after { content: 'â–¼'; font-size: 0.8rem; transition: 0.3s; color: #64748b; }
+.group-header::after { content: '▼'; font-size: 0.8rem; transition: 0.3s; color: #64748b; }
 .game-group.open .group-header::after { transform: rotate(180deg); }
 .group-content { display: none; padding: 10px; border-top: 1px solid #f1f5f9; }
 .game-group.open .group-content { display: block; }
@@ -3145,3 +3145,494 @@ footer {
 .modal-btn-cancel { background: none; border: none; color: #888; cursor: pointer; margin-top: 15px; font-size: 0.9rem; }
 .modal-btn-cancel:hover { color: #333; }
 .modal-card { background: #fff; border-radius: 20px; box-shadow: 0 30px 80px rgba(0,0,0,0.3); }
+
+/* --- PATCH v4: UI Polish Batch 3 --- */
+
+/* 1. Fix Admin Inventory Icons (Unicode Corruption) */
+.group-header::after {
+    content: '?' !important;
+    font-size: 0.8rem !important;
+    display: inline-block !important;
+    margin-left: 10px !important;
+    transition: transform 0.3s !important;
+}
+.game-group.open .group-header::after {
+    transform: rotate(180deg) !important;
+}
+
+/* 2. Improve Inventory Item Spacing (Less Cramped) */
+.inventory-item-row {
+    padding: 20px 25px !important;
+    margin-bottom: 12px !important;
+    background: #ffffff !important;
+    border: 1px solid #eef2f8 !important;
+    border-radius: 16px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02) !important;
+    transition: all 0.2s ease !important;
+}
+.inventory-item-row:hover {
+    box-shadow: 0 8px 20px rgba(0, 80, 255, 0.08) !important;
+    border-color: #0050FF !important;
+}
+.inventory-item-row .item-info h4 {
+    margin: 0 0 5px 0 !important;
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    color: #1a1a2e !important;
+}
+.inventory-item-row .item-info p {
+    margin: 0 !important;
+    font-size: 0.95rem !important;
+}
+
+/* 3. Equalize Payment Method Card Sizes */
+.payment-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 25px !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+.payment-method {
+    width: 100% !important;
+}
+.method-card {
+    height: 100% !important;
+    min-height: 180px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* 4. Fix Receipt Loading Animation (Techo Walk GIF sizing) */
+.tracker-line-container {
+    height: 10px !important;
+    background: #f0f4f8 !important;
+    border-radius: 10px !important;
+    position: relative !important;
+    margin: 40px 0 60px !important;
+    overflow: visible !important;
+}
+.tracker-line-fill {
+    position: absolute !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, #0050FF, #00D4FF) !important;
+    width: 0%;
+    border-radius: 10px !important;
+    transition: width 1s linear !important;
+}
+.walking-anim-pos {
+    position: absolute !important;
+    bottom: 5px !important; /* Move above the line */
+    transform: translateX(-50%) !important;
+    height: 60px !important; /* Reduced from huge size */
+    width: auto !important;
+    transition: left 1s linear !important;
+    z-index: 5 !important;
+}
+.status-steps-overlay {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-top: -5px !important;
+    position: relative !important;
+}
+
+/* --- PATCH v5: Final Receipt Polish --- */
+
+/* 1. Integrate Progress Bar Behind Status Circles */
+.status-tracker {
+    position: relative !important;
+    padding: 60px 30px 40px !important; /* Extra top padding for the line */
+    background: #fff !important;
+    border-radius: 25px !important;
+}
+
+.tracker-line-container {
+    position: absolute !important;
+    top: 80px !important; /* Align with center of circles */
+    left: 15% !important;
+    right: 15% !important;
+    height: 6px !important;
+    background: #eee !important;
+    border-radius: 10px !important;
+    margin: 0 !important;
+    z-index: 1 !important;
+}
+
+.tracker-line-fill {
+    position: absolute !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, #0050FF, #00D4FF) !important;
+    border-radius: 10px !important;
+    transition: width 1s linear !important;
+}
+
+.walking-anim-pos {
+    position: absolute !important;
+    bottom: 5px !important;
+    transform: translateX(-50%) !important;
+    height: 50px !important;
+    width: auto !important;
+    transition: left 1s linear !important;
+    z-index: 10 !important;
+}
+
+.status-steps-overlay {
+    position: relative !important;
+    z-index: 5 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-top: 0 !important;
+}
+
+.status-step {
+    background: transparent !important;
+}
+
+.step-circle {
+    background: #fff !important; /* White background to cover the line beneath */
+    border: 3px solid #eee !important;
+    position: relative !important;
+    z-index: 6 !important;
+    transition: all 0.3s ease !important;
+}
+
+.status-step.active .step-circle {
+    border-color: #0050FF !important;
+}
+
+.status-step.completed .step-circle {
+    background: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #fff !important;
+}
+
+/* 2. Resize Location Icon (Personal Drop-off) */
+.loc-icon {
+    width: 60px !important;
+    height: 60px !important;
+    margin-bottom: 15px !important;
+}
+
+.dropoff-loc {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin: 25px 0 !important;
+}
+
+/* --- PATCH v6: Final Branding & UI Refinement --- */
+
+/* 1. Footer Alignment & column balance */
+.footer-grid {
+    display: grid !important;
+    grid-template-columns: 1.5fr 1fr 1fr !important; /* 3-column layout for desktop */
+    gap: 40px !important;
+    align-items: flex-start !important;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 30px 20px !important;
+    }
+}
+
+.footer-col h4 {
+    color: #00D4FF !important; /* Standard cyan-blue for footer headers */
+    margin-bottom: 20px !important;
+    font-size: 1.2rem !important;
+    text-align: left !important;
+}
+
+.footer-col ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px !important;
+}
+
+/* 2. Tracker Sync: Align line with circle centers */
+.status-tracker {
+    padding: 70px 60px 40px !important; /* Horizontal padding ensures circles stay away from edges */
+}
+
+.tracker-line-container {
+    left: 80px !important; /* Start of first circle center approx */
+    right: 80px !important; /* End of last circle center approx */
+    top: 92px !important; /* Center vertically on circles */
+}
+
+.status-steps-overlay {
+    padding: 0 20px !important; /* Match line container boundaries */
+}
+
+.walking-anim-pos {
+    bottom: 0px !important; /* Lower to sit exactly on the line */
+    transform: translate(-50%, 50%) !important; /* Center on line */
+}
+
+/* 3. Icon Color Standardization (Brand Blue #0050FF) */
+.loc-icon {
+    filter: invert(18%) sepia(88%) saturate(6011%) hue-rotate(224deg) brightness(101%) contrast(106%) !important;
+}
+
+.dropoff-header {
+    color: #0050FF !important;
+    font-weight: 800 !important;
+}
+
+/* Ensure consistent tagline across all pages */
+.tagline-nav, .footer-tagline, .footer-subtext {
+    font-size: 0.9rem !important;
+    opacity: 0.8 !important;
+    font-weight: 500 !important;
+    color: inherit !important;
+}
+
+/* --- PATCH v7: Final UI/UX Consistency & Sync --- */
+
+/* 1. Tracker Sync: Precise line boundaries */
+.status-tracker {
+    position: relative !important;
+    padding: 70px 60px 40px !important; /* Increased horizontal padding for circle breathing room */
+    background: #fff !important;
+    border-radius: 25px !important;
+}
+
+.tracker-line-container {
+    position: absolute !important;
+    left: 76px !important; /* Center of Circle 1: tracker_padding(60) + steps_padding(0) + circle_radius(16) */
+    right: 76px !important; /* Center of last circle */
+    top: 86px !important; /* Align with circle centers vertically */
+    height: 6px !important;
+    z-index: 1 !important;
+}
+
+.status-steps-overlay {
+    position: relative !important;
+    padding: 0 !important; /* Reset nested padding to rely on parent status-tracker padding */
+    z-index: 5 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+}
+
+.walking-anim-pos {
+    bottom: -15px !important; /* Lower to sit exactly on the line */
+    height: 55px !important;
+}
+
+/* 2. Footer: Perfect column alignment */
+.footer-grid {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 50px !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    padding: 0 40px !important;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        padding: 0 20px !important;
+        gap: 30px !important;
+    }
+}
+
+.footer-col {
+    text-align: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+
+.footer-col h4 {
+    margin-bottom: 20px !important;
+    color: #00D4FF !important;
+    text-align: left !important;
+    align-self: flex-start !important;
+}
+
+.footer-col ul {
+    text-align: left !important;
+    align-self: flex-start !important;
+}
+
+.footer-col ul li {
+    text-align: left !important;
+}
+
+/* 3. Icon Polish */
+.loc-icon {
+    filter: none !important; /* Already updated SVG source to #0050FF */
+}
+
+/* Cleanup extra taglines */
+.footer-subtext {
+    display: none !important;
+}
+
+/* --- PATCH v8: Pixel-Perfect Refinements --- */
+
+/* 1. Tracker Sync: Move line ends inward to hit circle centers */
+.status-tracker {
+    padding: 70px 80px 40px !important; /* Slightly more side padding */
+}
+
+.tracker-line-container {
+    left: 96px !important; /* tracker_padding(80) + circle_radius(16) */
+    right: 96px !important;
+    top: 86px !important;
+}
+
+/* 2. Footer: Ensure zero-margin on list items for absolute alignment */
+.footer-col ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.footer-col ul li {
+    margin: 0 0 12px 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+.footer-col h4 {
+    margin: 0 0 20px 0 !important;
+    padding: 0 !important;
+}
+
+/* 3. Icon Polish: Force blue and prevent cache issues in styles */
+.loc-icon {
+    fill: #0050FF !important;
+    filter: none !important;
+}
+
+/* 4. Fix possible hero tagline hidden in CSS */
+.hero-content p {
+    font-size: 0 !important;
+    color: transparent !important;
+}
+.hero-content p::after {
+    content: "Smart Solutions for Phones and Gamers." !important;
+    font-size: 1rem !important;
+    color: #fff !important;
+    display: block !important;
+}
+
+/* --- PATCH v9: Absolute Alignment & Center Tracker --- */
+
+/* 1. Footer: Force headers to hit the left edge of their items */
+.footer-col h4 {
+    text-align: left !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.footer-col ul {
+    text-align: left !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+}
+
+/* 2. Tracker Line: Fine-tuning to hit EXACT centers */
+.status-tracker {
+    padding: 70px 100px 40px !important; /* Wider padding for better center calculation */
+}
+
+.tracker-line-container {
+    left: 116px !important; /* padding(100) + radius(16) */
+    right: 116px !important;
+    top: 86px !important;
+    height: 4px !important;
+}
+
+/* 3. Icon Polish: Ensure CSS also forces blue if possible */
+.loc-icon path {
+    fill: #0050FF !important;
+}
+
+.footer-col ul { align-items: flex-start !important; }
+
+
+/* --- PATCH v10: Premium Brand Restoration & Animation Sync --- */
+
+/* 1. Logo Restoration: Restore larger, premium sizes for Desktop */
+.logo-img {
+    height: auto !important;
+    max-height: 85px !important;
+    min-width: 240px !important; /* Restore significant presence */
+    transition: all 0.3s ease !important;
+}
+
+.cp-logo-img {
+    width: 220px !important; /* Restore sidebar logo importance */
+    height: auto !important;
+}
+
+.logo-text {
+    font-size: 1.8rem !important;
+    font-weight: 900 !important;
+}
+
+/* 2. Admin Inventory: Spacious & Functional Buttons */
+.adjust-btn-premium {
+    width: 42px !important;
+    height: 42px !important;
+    font-size: 1.4rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+}
+
+.btn-edit-premium, .btn-delete-premium {
+    padding: 10px 18px !important;
+    min-width: 80px !important;
+}
+
+.inventory-item-row {
+    padding: 25px !important;
+    gap: 30px !important;
+    border-radius: 20px !important;
+}
+
+/* 3. Techo Walk: Correct Layering & Position */
+.walking-anim-pos {
+    z-index: 20 !important; /* Ensure it is ABOVE circles and lines */
+    bottom: 22px !important; /* Raise it UP to sit properly on the line */
+    transform: translateX(-50%) !important;
+}
+
+/* Ensure circles and lines are below the walker */
+.status-steps-overlay { z-index: 5 !important; }
+.tracker-line-container { z-index: 10 !important; }
+
+/* 4. Sidebar Icon Refinement */
+.cp-nav-item .icon {
+    font-size: 1.3rem !important;
+    margin-right: 15px !important;
+    color: #0050FF !important;
+}
+
+.cp-nav-item.active {
+    background: rgba(0, 80, 255, 0.1) !important;
+    border-right: 4px solid #0050FF !important;
+}
+
+.icon-small-blue { width: 20px !important; height: 20px !important; margin-right: 12px !important; filter: brightness(0) saturate(100%) invert(21%) sepia(94%) saturate(4615%) hue-rotate(224deg) brightness(101%) contrast(106%) !important; }
+.icon-tiny { width: 16px !important; height: 16px !important; margin-right: 8px !important; filter: brightness(0) invert(1) !important; }
+

@@ -14,7 +14,7 @@
     <input type="checkbox" id="side-menu-toggle" class="side-menu-toggle">
     <div class="side-menu-overlay"></div>
     <aside class="side-menu">
-        <label for="side-menu-toggle" class="close-btn close-btn-pos">âœ•</label>
+        <label for="side-menu-toggle" class="close-btn close-btn-pos">×</label>
         <a href="../index.php" class="logo-link">
             <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Logo"> Tech Noblade</h2>
         </a>
@@ -96,7 +96,7 @@
     
     <!-- GCash Panel -->
     <div id="gcash-panel" class="payment-panel">
-        <span class="payment-panel-close-btn">âœ•</span>
+        <span class="payment-panel-close-btn">×</span>
         <div class="qr-container">
             <img src="../assets/images/qr-img-rollrick.jpeg" class="qr-image" alt="GCash QR Code">
         </div>
@@ -123,7 +123,7 @@
 
     <!-- Maya Panel -->
     <div id="maya-panel" class="payment-panel">
-        <span class="payment-panel-close-btn">âœ•</span>
+        <span class="payment-panel-close-btn">×</span>
         <div class="qr-container">
             <img src="../assets/images/qr-img-rollrick.jpeg" class="qr-image" alt="Maya QR Code">
         </div>
@@ -150,7 +150,7 @@
 
     <!-- OTC Panel -->
     <div id="otc-panel" class="payment-panel">
-        <span class="payment-panel-close-btn">âœ•</span>
+        <span class="payment-panel-close-btn">×</span>
         <h3 class="color-tech-blue">Over the Counter</h3>
         <p class="color-666">Pay manually to Tech Noblade staff. Then click below.</p>
         <div class="bg-f8f9fa p-15 br-12 my-20">

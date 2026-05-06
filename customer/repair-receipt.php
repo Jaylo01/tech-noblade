@@ -14,7 +14,7 @@
     <input type="checkbox" id="side-menu-toggle" class="side-menu-toggle">
     <div class="side-menu-overlay"></div>
     <aside class="side-menu">
-        <label for="side-menu-toggle" class="close-btn close-btn-pos">✕</label>
+        <label for="side-menu-toggle" class="close-btn close-btn-pos">âœ•</label>
         <a href="../index.php" class="logo-link">
             <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Logo"> Tech Noblade</h2>
         </a>
@@ -33,7 +33,7 @@
         <div class="container">
             <a href="../index.php" class="logo-link">
                 <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Tech Noblade Logo"> Tech Noblade</h2>
-                <span class="tagline-nav">"We fix your tech, we fund your play"</span>
+                <span class="tagline-nav">"Smart Solutions for Phones and Gamers."</span>
             </a>
 
             <nav>
@@ -41,7 +41,7 @@
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../shared/about.php">About</a></li>
                     <li><a href="../shared/contact.php">Contact</a></li>
-                    <li><label for="side-menu-toggle" class="nav-toggle-btn">☰</label></li>
+                    <li><label for="side-menu-toggle" class="nav-toggle-btn">â˜°</label></li>
                 </ul>
             </nav>
         </div>
@@ -103,7 +103,7 @@
                 <!-- Diagnostic Quote -->
                 <div id="quote-card" class="product-summary-card mb-20 hidden">
                     <h4 class="fs-0-8 color-warning text-uppercase letter-spacing-1">Technician's Diagnostic Quote</h4>
-                    <div id="quote-value" class="fs-2-0 font-weight-900 color-tech-dark">₱0.00</div>
+                    <div id="quote-value" class="fs-2-0 font-weight-900 color-tech-dark">â‚±0.00</div>
                     <p class="fs-0-85 color-666">Please confirm via contact for final approval.</p>
                 </div>
 
@@ -112,7 +112,7 @@
                     <h4 class="dropoff-header">Next Step: Personal Drop-off</h4>
                     <p class="dropoff-note">Please bring your device to our service center for assessment:</p>
                     <div class="dropoff-loc">
-                        <img src="../assets/images/location.svg" class="loc-icon" alt="Map">
+                        <img src="../assets/images/location.svg?v=<?= time() ?>" class="loc-icon" alt="Map">
                         <p class="loc-details"><strong>Tech Noblade Service Center</strong><br>Cainta, Rizal, Philippines<br><small>Mon - Sat | 9:00 AM - 9:00 PM</small></p>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                     <a href="../index.php" class="logo-link">
                         <h2 class="color-fff"><img src="../assets/images/logo.jpeg" class="logo-img-small" alt="Logo"> Tech Noblade</h2>
                     </a>
-                    <p class="footer-tagline">Fast & Reliable Tech Services and Game Top-Ups.</p>
+                    <p class="footer-tagline">Smart Solutions for Phones and Gamers..</p>
                 </div>
 
                 <div class="footer-col footer-col-middle">
@@ -251,7 +251,7 @@
 
                 if (data.diagnostic_quote) {
                     document.getElementById('quote-card').classList.remove('hidden');
-                    document.getElementById('quote-value').innerText = '₱' + parseFloat(data.diagnostic_quote).toLocaleString();
+                    document.getElementById('quote-value').innerText = 'â‚±' + parseFloat(data.diagnostic_quote).toLocaleString();
                 }
 
                 const status = (data.status || 'pending').toLowerCase();
@@ -303,3 +303,4 @@
 </body>
 
 </html>
+

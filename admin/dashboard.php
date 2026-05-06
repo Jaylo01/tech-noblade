@@ -53,29 +53,29 @@ require_once '../api/auth_admin_guard.php';
         </div>
         <div class="cp-sidebar-nav">
             <div class="cp-nav-item active" onclick="showTab('overview')">
-                <span class="icon">&#9673;</span> <span>Dashboard</span>
+                <img src="../assets/images/icon-dashboard.svg" class="icon-small-blue"> <span>Dashboard</span>
             </div>
             <div class="cp-nav-item" onclick="showTab('orders')">
-                <span class="icon">&#9633;</span> <span>Orders</span>
+                <img src="../assets/images/icon-orders.svg" class="icon-small-blue"> <span>Orders</span>
             </div>
             <div class="cp-nav-item" onclick="showTab('references')">
-                <span class="icon">&#9812;</span> <span>Verification</span>
+                <img src="../assets/images/icon-verification.svg" class="icon-small-blue"> <span>Verification</span>
             </div>
             <div class="cp-nav-item" onclick="showTab('inventory')">
-                <span class="icon">&#9634;</span> <span>Inventory</span>
+                <img src="../assets/images/icon-inventory.svg" class="icon-small-blue"> <span>Inventory</span>
             </div>
             <div class="cp-nav-item" onclick="showTab('repairs')">
-                <span class="icon">&#9881;</span> <span>Repairs</span>
+                <img src="../assets/images/icon-repairs.svg" class="icon-small-blue"> <span>Repairs</span>
             </div>
             <div class="cp-nav-item" onclick="showTab('reports')">
-                <span class="icon">&#9783;</span> <span>Reports</span>
+                <img src="../assets/images/icon-website.svg" class="icon-small-blue" style="filter: hue-rotate(45deg);"> <span>Reports</span>
             </div>
             <div class="cp-nav-item" onclick="showTab('feedback')">
-                <span class="icon">&#9993;</span> <span>Feedback</span>
+                <img src="../assets/images/email.svg" class="icon-small-blue"> <span>Feedback</span>
             </div>
         </div>
         <div class="cp-sidebar-footer">
-            <a href="../index.php" class="cp-back-btn"><span>&#8962;</span> View Website</a>
+            <a href="../index.php" class="cp-back-btn"><img src="../assets/images/icon-website.svg" class="icon-tiny"> View Website</a>
             <a href="../api/auth_logout.php" class="cp-logout-btn"><span>&#8594;</span> Logout</a>
         </div>
     </aside>

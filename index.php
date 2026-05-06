@@ -19,7 +19,7 @@ $customer_name = $is_customer ? htmlspecialchars($_SESSION['customer_name']) : '
     <input type="checkbox" id="side-menu-toggle" class="side-menu-toggle">
     <div class="side-menu-overlay"></div>
     <aside class="side-menu">
-        <label for="side-menu-toggle" class="close-btn close-btn-pos">âœ•</label>
+        <label for="side-menu-toggle" class="close-btn close-btn-pos">×</label>
         <a href="index.php" class="logo-link">
             <h2 class="logo"><img src="assets/images/logo.jpeg" class="logo-img" alt="Logo"></h2>
         </a>
@@ -143,7 +143,7 @@ while ($row = $result->fetch_assoc()) {
                         </h2>
                     </a>
                     <p class="footer-tagline">"Smart Solutions for Phones and Gamers."</p>
-                    <p class="footer-subtext">Fast &amp; Reliable Tech Services and Game Top-Ups.</p>
+                    
                 </div>
 
                 <!-- Middle Column: Our Services -->
@@ -175,3 +175,4 @@ while ($row = $result->fetch_assoc()) {
 </body>
 
 </html>
+

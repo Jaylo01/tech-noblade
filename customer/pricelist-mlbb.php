@@ -27,7 +27,7 @@ $stmt->close();
     <input type="checkbox" id="side-menu-toggle" class="side-menu-toggle">
     <div class="side-menu-overlay"></div>
     <aside class="side-menu">
-        <label for="side-menu-toggle" class="close-btn">âœ•</label>
+        <label for="side-menu-toggle" class="close-btn">×</label>
         <a href="../index.php" class="logo-link">
             <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Logo"></h2>
         </a>
@@ -126,7 +126,7 @@ $stmt->close();
                     <a href="../index.php" class="logo-link">
                         <h2 class="logo-text-white"><img src="../assets/images/logo.jpeg" class="logo-img-small" alt="Logo"> Tech Noblade</h2>
                     </a>
-                    <p class="footer-tagline">Fast & Reliable Tech Services and Game Top-Ups.</p>
+                    <p class="footer-tagline">Smart Solutions for Phones and Gamers..</p>
                 </div>
 
 
@@ -157,3 +157,4 @@ $stmt->close();
 </body>
 
 </html>
+

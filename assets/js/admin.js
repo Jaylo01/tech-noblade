@@ -240,7 +240,7 @@ function loadProductsFromServer() {
                                         </div>
                                         <div class="flex gap-8">
                                             <button class="btn btn-small btn-edit-premium" onclick="editProduct(${item.id}, '${item.game.replace(/'/g, "\\'")}', '${item.item_name.replace(/'/g, "\\'")}', ${item.price}, ${item.stock})">Edit</button>
-                                            <button class="btn btn-small btn-delete-premium" onclick="if(confirm('Delete?')) deleteProductOnServer(${item.id})">âœ•</button>
+                                            <button class="btn btn-small btn-delete-premium" onclick="if(confirm('Delete?')) deleteProductOnServer(${item.id})">×</button>
                                         </div>
                                     </div>
                                 </div>
@@ -370,7 +370,7 @@ function viewRepairDetails(id) {
                 <div class="admin-card admin-card-modal">
                     <div class="flex-between-center mb-20">
                         <h2 class="m-0">Repair Details</h2>
-                        <span onclick="this.closest('#repair-detail-modal').style.display='none'" class="pointer fs-1-5">âœ•</span>
+                        <span onclick="this.closest('#repair-detail-modal').style.display='none'" class="pointer fs-1-5">×</span>
                     </div>
                     
                     <div class="detail-grid-2">
@@ -546,3 +546,21 @@ function loadReport(period) {
         });
 }
 
+
+function deleteProductOnServer(id) {
+    if (!confirm('Are you sure you want to delete this product?')) return;
+    
+    fetch('../api/api_products.php?id=' + id, {
+        method: 'DELETE'
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            loadProductsFromServer();
+            loadAnalytics();
+        } else {
+            alert('Delete failed: ' + (data.error || 'Unknown error'));
+        }
+    })
+    .catch(err => console.error('Error deleting product:', err));
+}
