@@ -578,3 +578,4 @@ function showAddProductModal() {
     document.getElementById('p-stock').value = "0";
     document.getElementById('product-modal').style.display = 'flex';
 }
+

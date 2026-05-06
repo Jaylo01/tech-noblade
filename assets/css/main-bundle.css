@@ -1,4 +1,4 @@
-/* Basic Reset */
+﻿/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -2204,7 +2204,7 @@ footer {
 .game-group { background: #fff; border-radius: 12px; border: 1px solid #eef2f6; overflow: hidden; margin-bottom: 10px; }
 .group-header { padding: 15px 20px; background: #f8faff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 700; color: #000c24; transition: 0.2s; }
 .group-header:hover { background: #f1f5f9; }
-.group-header::after { content: '▼'; font-size: 0.8rem; transition: 0.3s; color: #64748b; }
+.group-header::after { content: 'â–¼'; font-size: 0.8rem; transition: 0.3s; color: #64748b; }
 .game-group.open .group-header::after { transform: rotate(180deg); }
 .group-content { display: none; padding: 10px; border-top: 1px solid #f1f5f9; }
 .game-group.open .group-content { display: block; }
@@ -3146,7 +3146,7 @@ footer {
 .modal-btn-cancel:hover { color: #333; }
 .modal-card { background: #fff; border-radius: 20px; box-shadow: 0 30px 80px rgba(0,0,0,0.3); }
 
-/* --- PATCH v4: UI Polish Batch 3 --- */
+
 
 /* 1. Fix Admin Inventory Icons (Unicode Corruption) */
 .group-header::after {
@@ -3239,7 +3239,7 @@ footer {
     position: relative !important;
 }
 
-/* --- PATCH v5: Final Receipt Polish --- */
+
 
 /* 1. Integrate Progress Bar Behind Status Circles */
 .status-tracker {
@@ -3323,7 +3323,7 @@ footer {
     margin: 25px 0 !important;
 }
 
-/* --- PATCH v6: Final Branding & UI Refinement --- */
+
 
 /* 1. Footer Alignment & column balance */
 .footer-grid {
@@ -3396,7 +3396,7 @@ footer {
     color: inherit !important;
 }
 
-/* --- PATCH v7: Final UI/UX Consistency & Sync --- */
+
 
 /* 1. Tracker Sync: Precise line boundaries */
 .status-tracker {
@@ -3481,7 +3481,7 @@ footer {
     display: none !important;
 }
 
-/* --- PATCH v8: Pixel-Perfect Refinements --- */
+
 
 /* 1. Tracker Sync: Move line ends inward to hit circle centers */
 .status-tracker {
@@ -3529,7 +3529,7 @@ footer {
     display: block !important;
 }
 
-/* --- PATCH v9: Absolute Alignment & Center Tracker --- */
+
 
 /* 1. Footer: Force headers to hit the left edge of their items */
 .footer-col h4 {
@@ -3567,7 +3567,7 @@ footer {
 .footer-col ul { align-items: flex-start !important; }
 
 
-/* --- PATCH v10: Premium Brand Restoration & Animation Sync --- */
+
 
 /* 1. Logo Restoration: Restore larger, premium sizes for Desktop */
 .logo-img {
@@ -3637,7 +3637,7 @@ footer {
 .icon-tiny { width: 16px !important; height: 16px !important; margin-right: 8px !important; filter: brightness(0) invert(1) !important; }
 
 
-/* --- PATCH v11: Final Layout & Icon Polish --- */
+
 
 /* 1. Tracker Layering: Move line BEHIND circles */
 .tracker-line-container {
@@ -3693,7 +3693,7 @@ footer {
     }
 }
 
-/* --- PATCH v12: Logo Restoration & Anti-Stretching --- */
+
 
 /* 1. Desktop Header Logo: Robust & Proportional */
 .logo-img {
@@ -3745,7 +3745,7 @@ img[alt*="Logo"], .logo-img, .cp-logo-img, .brand img {
     }
 }
 
-/* --- PATCH v13: Absolute Brand Stability & Upscaling --- */
+
 
 .logo-img, .cp-logo-img, .brand img {
     width: 320px !important;
@@ -3795,7 +3795,7 @@ img[alt*="Logo"], .logo-img, .cp-logo-img, .brand img {
     transform: rotate(180deg) !important;
 }
 
-/* --- PATCH v14: Receipt Sync & Symbol Stability --- */
+
 
 .receipt-logo {
     display: block !important;
@@ -3816,10 +3816,10 @@ img[alt*="Logo"], .logo-img, .cp-logo-img, .brand img {
     user-select: none !important;
 }
 
-/* --- PATCH v15: Batch 8 Bug Fixes --- */
+
 
 /* 1. Inventory Dropdown Fix */
-/* We remove the old pseudo-element that is enforcing the ? symbol to make way for the new stable â–¼ span */
+/* We remove the old pseudo-element that is enforcing the ? symbol to make way for the new stable Ã¢â€“Â¼ span */
 .group-header::after {
     display: none !important;
     content: none !important;
@@ -3854,7 +3854,7 @@ img[alt*="Logo"], .logo-img, .cp-logo-img, .brand img {
     overflow: hidden !important;
 }
 
-/* --- PATCH v16: Print Format Recovery --- */
+
 .print-only-header {
     height: auto !important;
     min-height: 180px !important;
@@ -3869,7 +3869,7 @@ img[alt*="Logo"], .logo-img, .cp-logo-img, .brand img {
     margin-bottom: 10px !important;
 }
 
-/* --- PATCH v17: Absolute Print Layout Enforcement --- */
+
 @media print {
     .print-only-header {
         display: flex !important;
@@ -3912,3 +3912,4 @@ img[alt*="Logo"], .logo-img, .cp-logo-img, .brand img {
         float: none !important;
     }
 }
+
