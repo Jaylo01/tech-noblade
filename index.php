@@ -136,17 +136,20 @@ while ($row = $result->fetch_assoc()) {
                 <!-- Left Column: Logo & Tagline -->
                 <!-- Left Column: Branding -->
                 <div class="footer-col footer-col-left">
-                    <div class="footer-logo-block">
-                        <img src="assets/images/logo.jpeg" class="footer-logo-img" alt="Logo">
-                        <h2 class="color-fff m-0">Tech Noblade</h2>
-                        <p class="footer-tagline-text">"Smart Solutions for Phones and Gamers."</p>
-                    </div>
+                    <a href="index.php" class="nav-link-brand-footer">
+                        <h2 class="logo footer-logo">
+                            <img src="assets/images/logo.jpeg" class="logo-img logo-img-footer" alt="Logo"> 
+                            Tech Noblade
+                        </h2>
+                    </a>
+                    <p class="footer-tagline">"Smart Solutions for Phones and Gamers."</p>
+                    <p class="footer-subtext">Fast &amp; Reliable Tech Services and Game Top-Ups.</p>
                 </div>
 
                 <!-- Middle Column: Our Services -->
                 <div class="footer-col footer-col-middle">
                     <h4>Our Services</h4>
-                    <ul class="footer-links">
+                    <ul>
                         <li><a href="customer/products.php">Game Top-Up</a></li>
                         <li><a href="customer/repair.php">Tech Repair</a></li>
                     </ul>
@@ -155,7 +158,7 @@ while ($row = $result->fetch_assoc()) {
                 <!-- Right Column: Company -->
                 <div class="footer-col footer-col-right">
                     <h4>Company</h4>
-                    <ul class="footer-links">
+                    <ul>
                         <li><a href="shared/about.php">About</a></li>
                         <li><a href="shared/contact.php">Contact</a></li>
                     </ul>

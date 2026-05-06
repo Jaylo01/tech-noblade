@@ -51,7 +51,7 @@ require_once '../api/auth_admin_guard.php';
         <div class="cp-user-info">
             <div class="name">Admin</div>
         </div>
-        <div class="cp-sidebar-nav" style="flex: 1; overflow-y: auto;">
+        <div class="cp-sidebar-nav">
             <div class="cp-nav-item active" onclick="showTab('overview')">
                 <span class="icon">&#9673;</span> <span>Dashboard</span>
             </div>

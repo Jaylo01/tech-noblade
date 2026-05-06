@@ -2892,3 +2892,256 @@ footer {
 
 /* --- Auth modal fix: ensure it starts hidden --- */
 #auth-required-modal.hidden { display: none !important; }
+
+/* ========================================
+   PATCH v3: UI Polish Batch 2
+   ======================================== */
+
+/* --- 1. Admin Sidebar: Remove scrollbar, contain logo --- */
+.cp-sidebar-nav {
+    flex: 1;
+    overflow: hidden !important;
+}
+.cp-sidebar::-webkit-scrollbar,
+.cp-sidebar-nav::-webkit-scrollbar {
+    display: none !important;
+}
+.cp-sidebar {
+    scrollbar-width: none !important;
+    overflow: hidden !important;
+}
+.cp-sidebar-header {
+    padding: 20px 15px !important;
+}
+.cp-logo-container {
+    max-width: 100% !important;
+    display: inline-block !important;
+    box-sizing: border-box !important;
+}
+.cp-logo-img {
+    width: 220px !important;
+    min-width: auto !important;
+    max-width: 100% !important;
+}
+
+/* --- 2. Inventory Grid: Full-width cards --- */
+.inventory-grid,
+#inventory-section .game-inventory-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+#inventory-section .admin-card {
+    width: 100% !important;
+}
+.sku-card, .inventory-card {
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* --- 3. Payment Method Cards: Premium redesign --- */
+.method-card {
+    border: 2px solid #e8ecf4 !important;
+    border-radius: 20px !important;
+    padding: 35px 25px !important;
+    background: #fff !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    min-height: 160px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04) !important;
+}
+.method-card:hover {
+    border-color: #0050FF !important;
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(0, 80, 255, 0.12) !important;
+}
+.method-card.active {
+    border-color: #0050FF !important;
+    background: linear-gradient(135deg, #f0f7ff 0%, #e8f0ff 100%) !important;
+    box-shadow: 0 10px 30px rgba(0, 80, 255, 0.2) !important;
+}
+.payment-logo {
+    height: 55px !important;
+    width: auto !important;
+    border-radius: 12px !important;
+    object-fit: contain !important;
+}
+.method-card span {
+    font-weight: 800 !important;
+    font-size: 1rem !important;
+    color: #1a1a2e !important;
+}
+.payment-grid {
+    max-width: 700px !important;
+    margin: 0 auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 20px !important;
+}
+
+/* --- 4. Payment Panel QR & GIF: Reduce sizes --- */
+.qr-container {
+    width: 180px !important;
+    height: 180px !important;
+    margin: 0 auto 20px !important;
+}
+.payment-panel img[src*="techno-standby"],
+.payment-panel img[src*="techno-walking"] {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: contain !important;
+}
+
+/* --- 5. Receipt Panel GIF Size --- */
+.receipt-box img[src*="techno"],
+.success-card img[src*="techno"] {
+    width: 60px !important;
+    height: 60px !important;
+    object-fit: contain !important;
+}
+
+/* --- 6. Login Panel: Left-align labels, background animation --- */
+.auth-card {
+    text-align: left !important;
+}
+.auth-card .auth-logo,
+.auth-card .auth-title,
+.auth-card .auth-sub {
+    text-align: center !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.auth-card .auth-links,
+.auth-card .divider {
+    text-align: center !important;
+}
+.auth-card .form-group label {
+    text-align: left !important;
+    display: block !important;
+}
+.auth-card .form-input {
+    text-align: left !important;
+}
+.auth-card .btn-full {
+    text-align: center !important;
+}
+
+/* Login background: Animated floating shapes */
+.auth-body {
+    position: relative !important;
+    overflow: hidden !important;
+}
+.auth-body::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 80, 255, 0.3) 0%, transparent 70%);
+    top: -120px;
+    right: -120px;
+    border-radius: 50%;
+    animation: floatBg1 8s ease-in-out infinite;
+}
+.auth-body::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
+    bottom: -100px;
+    left: -100px;
+    border-radius: 50%;
+    animation: floatBg2 10s ease-in-out infinite;
+}
+@keyframes floatBg1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-40px, 30px) scale(1.15); }
+}
+@keyframes floatBg2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -40px) scale(1.1); }
+}
+.auth-card {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Admin Login: Same fix for admin login page */
+.admin-login-body {
+    position: relative !important;
+    overflow: hidden !important;
+}
+.admin-login-body::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 80, 255, 0.3) 0%, transparent 70%);
+    top: -120px;
+    right: -120px;
+    border-radius: 50%;
+    animation: floatBg1 8s ease-in-out infinite;
+}
+.admin-login-body::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
+    bottom: -100px;
+    left: -100px;
+    border-radius: 50%;
+    animation: floatBg2 10s ease-in-out infinite;
+}
+.admin-login-card {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* --- Additional utility classes --- */
+.w-70 { width: 70px !important; }
+.mb-8 { margin-bottom: 8px; }
+.mb-5 { margin-bottom: 5px; }
+.mb-40 { margin-bottom: 40px; }
+.mt-10 { margin-top: 10px; }
+.mt-15 { margin-top: 15px; }
+.mt-20 { margin-top: 20px; }
+.my-15 { margin-top: 15px; margin-bottom: 15px; }
+.my-20 { margin-top: 20px; margin-bottom: 20px; }
+.p-12 { padding: 12px; }
+.p-15 { padding: 15px; }
+.p-20 { padding: 20px; }
+.px-20 { padding-left: 20px; padding-right: 20px; }
+.py-8 { padding-top: 8px; padding-bottom: 8px; }
+.br-8 { border-radius: 8px; }
+.br-12 { border-radius: 12px; }
+.br-15 { border-radius: 15px; }
+.b-1-ddd { border: 1px solid #ddd; }
+.b-1-dashed-blue { border: 1px dashed #0050FF; }
+.bg-f8f9fa { background: #f8f9fa; }
+.bg-f0f7ff { background: #f0f7ff; }
+.block { display: block; }
+.w-full { width: 100%; }
+.color-333 { color: #333; }
+.color-warning { color: #856404; }
+.font-mono { font-family: monospace; }
+.font-weight-800 { font-weight: 800; }
+.fs-0-8 { font-size: 0.8rem; }
+.fs-0-85 { font-size: 0.85rem; }
+.underline { text-decoration: underline; }
+.spacer-140 { width: 140px; }
+.btn-outline-blue { background: transparent; border: 1px solid #0050FF; color: #0050FF; border-radius: 50px; }
+.btn-outline-blue:hover { background: #0050FF; color: #fff; }
+.nav-link-brand { color: #0050FF; }
+.nav-link-brand-footer { text-decoration: none; }
+.footer-subtext { opacity: 0.7; font-size: 0.9rem; margin-top: 5px; }
+.logo-img-footer { height: 100px; border-radius: 8px; }
+.modal-btn-cancel { background: none; border: none; color: #888; cursor: pointer; margin-top: 15px; font-size: 0.9rem; }
+.modal-btn-cancel:hover { color: #333; }
+.modal-card { background: #fff; border-radius: 20px; box-shadow: 0 30px 80px rgba(0,0,0,0.3); }
