@@ -157,7 +157,7 @@
                 .then(auth => {
                     if (!auth.logged_in) {
                         const modal = document.getElementById('auth-required-modal');
-                        if (modal) modal.style.display = 'flex';
+                        if (modal) modal.classList.remove('hidden');
                         return;
                     }
                     

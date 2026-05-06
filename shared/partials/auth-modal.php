@@ -12,6 +12,6 @@ $prefix = (strpos($current_script, '/customer/') !== false || strpos($current_sc
             <a href="<?= (strpos($current_script, '/customer/') !== false) ? 'login.php' : $prefix . 'login.php' ?>" class="btn btn-primary">Login Now</a>
             <a href="<?= (strpos($current_script, '/customer/') !== false) ? 'register.php' : $prefix . 'register.php' ?>" class="btn btn-outline color-tech-blue">Create Account</a>
         </div>
-        <button onclick="document.getElementById('auth-required-modal').style.display='none'" class="modal-btn-cancel">Cancel</button>
+        <button onclick="document.getElementById('auth-required-modal').classList.add('hidden')" class="modal-btn-cancel">Cancel</button>
     </div>
 </div>

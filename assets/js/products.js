@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         form.submit();
                     } else {
                         const modal = document.getElementById('auth-required-modal');
-                        if (modal) modal.style.display = 'flex';
+                        if (modal) modal.classList.remove('hidden');
                     }
                 })
                 .catch(err => alert("Network error. Please try again later."));
