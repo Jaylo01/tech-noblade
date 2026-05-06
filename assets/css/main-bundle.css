@@ -3815,3 +3815,41 @@ img[alt*="Logo"], .logo-img, .cp-logo-img, .brand img {
     transition: transform 0.3s ease !important;
     user-select: none !important;
 }
+
+/* --- PATCH v15: Batch 8 Bug Fixes --- */
+
+/* 1. Inventory Dropdown Fix */
+/* We remove the old pseudo-element that is enforcing the ? symbol to make way for the new stable â–¼ span */
+.group-header::after {
+    display: none !important;
+    content: none !important;
+}
+.group-header {
+    justify-content: flex-start !important;
+    gap: 10px !important;
+}
+.group-chevron {
+    margin-left: auto !important; /* Pushes the stable chevron exactly to the right */
+}
+
+/* 2. Print Report Logo Fix */
+.print-only-header img {
+    height: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    overflow: visible !important;
+}
+
+/* 3. Footer Overlap Fix */
+.footer-grid {
+    gap: 30px !important; /* Forces columns apart */
+    flex-wrap: wrap !important;
+}
+.footer-logo-img {
+    width: 120px !important; /* Slightly scale down to prevent text bumping */
+    height: auto !important;
+}
+.footer-col-left {
+    min-width: 250px !important;
+    overflow: hidden !important;
+}
