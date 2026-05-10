@@ -185,3 +185,30 @@
 
 @keyframes spin { to { transform: rotate(360deg); } }
 .spinner-spin { margin: 0 auto 8px; width: 22px; height: 22px; border: 3px solid rgba(0,80,255,0.1); border-top-color: #0050FF; border-radius: 50%; animation: spin 0.8s linear infinite; }
+
+/* Panel Mini Footer */
+.panel-footer-mini {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e8eef8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: #999;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.panel-footer-brand {
+    font-weight: 700;
+    color: #0050FF;
+    opacity: 0.75;
+}
+.panel-footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.panel-footer-links a:hover {
+    color: #0050FF;
+}

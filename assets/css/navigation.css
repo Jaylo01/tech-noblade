@@ -155,6 +155,56 @@
     align-items: flex-start;
 }
 
+/* Sidebar Logo Size Override */
+.side-menu .side-logo-container {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin-bottom: 30px !important;
+    padding-bottom: 20px !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+}
+
+.side-menu .logo-img.side-logo-img {
+    height: 120px !important; /* Made significantly larger as requested */
+    width: auto !important;
+    min-width: unset !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    border-radius: 12px !important;
+    object-fit: contain !important;
+}
+
+.side-menu .logo-text {
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+    color: #0050FF;
+}
+
+/* Close button specific styling */
+.close-btn-pos {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.2s, transform 0.2s;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn-pos:hover {
+    color: #0050FF;
+    transform: rotate(90deg);
+}
+
+.close-btn-pos svg {
+    width: 20px;
+    height: 20px;
+}
+
 /* Auth Nav Section Helpers */
 .nav-auth-divider { border:none; border-top:1px solid rgba(0,0,0,0.08); margin:18px 0; }
 .nav-auth-label { font-size:0.72rem; text-transform:uppercase; letter-spacing:1.5px; color:rgba(0,0,0,0.35); padding:0; display:block; margin-bottom:8px; }

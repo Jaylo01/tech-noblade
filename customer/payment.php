@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,7 +14,7 @@
     <input type="checkbox" id="side-menu-toggle" class="side-menu-toggle">
     <div class="side-menu-overlay"></div>
     <aside class="side-menu">
-        <label for="side-menu-toggle" class="close-btn close-btn-pos">&times;</label>
+        <label for="side-menu-toggle" class="close-btn close-btn-pos"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></label>
         <a href="../index.php" class="logo-link">
             <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Logo"> Tech Noblade</h2>
         </a>
@@ -42,7 +42,7 @@
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../shared/about.php">About</a></li>
                     <li><a href="../shared/contact.php">Contact</a></li>
-                    <li><label for="side-menu-toggle" class="nav-toggle-btn">â˜°</label></li>
+                    <li><label for="side-menu-toggle" class="nav-toggle-btn"><img src="../assets/images/icon-menu-bars.svg" class="icon-menu-img"></label></li>
                 </ul>
             </nav>
         </div>
@@ -50,7 +50,7 @@
 
     <main class="container section-padding text-center">
         <div class="flex-between-center mb-20 px-20">
-            <a href="products.php" class="btn btn-outline-blue py-8 px-20 fs-0-9">â† Back to Products</a>
+            <a href="products.php" class="btn btn-outline-blue py-8 px-20 fs-0-9">&#8592; Back to Products</a>
             <h2 class="section-title mb-0">Payment Method</h2>
             <div class="spacer-140"></div>
         </div>
@@ -96,7 +96,7 @@
     
     <!-- GCash Panel -->
     <div id="gcash-panel" class="payment-panel">
-        <span class="payment-panel-close-btn">×</span>
+        <span class="payment-panel-close-btn">&#215;</span>
         <div class="qr-container">
             <img src="../assets/images/qr-img-rollrick.jpeg" class="qr-image" alt="GCash QR Code">
         </div>
@@ -119,11 +119,15 @@
             <button onclick="submitReference('gcash-ref', this)" class="btn btn-primary btn-full">Submit Reference</button>
             <div id="gcash-ref-msg" class="mt-10 fs-0-8 font-weight-800"></div>
         </div>
+        <div class="panel-footer-mini">
+            <span class="panel-footer-brand">&#128241; Tech Noblade &amp; Top Up</span>
+            <span class="panel-footer-links"><a href="../shared/about.php">About</a> &bull; <a href="../shared/contact.php">Contact</a></span>
+        </div>
     </div>
 
     <!-- Maya Panel -->
     <div id="maya-panel" class="payment-panel">
-        <span class="payment-panel-close-btn">×</span>
+        <span class="payment-panel-close-btn">&#215;</span>
         <div class="qr-container">
             <img src="../assets/images/qr-img-rollrick.jpeg" class="qr-image" alt="Maya QR Code">
         </div>
@@ -146,11 +150,15 @@
             <button onclick="submitReference('maya-ref', this)" class="btn btn-primary btn-full">Submit Reference</button>
             <div id="maya-ref-msg" class="mt-10 fs-0-8 font-weight-800"></div>
         </div>
+        <div class="panel-footer-mini">
+            <span class="panel-footer-brand">&#128241; Tech Noblade &amp; Top Up</span>
+            <span class="panel-footer-links"><a href="../shared/about.php">About</a> &bull; <a href="../shared/contact.php">Contact</a></span>
+        </div>
     </div>
 
     <!-- OTC Panel -->
     <div id="otc-panel" class="payment-panel">
-        <span class="payment-panel-close-btn">×</span>
+        <span class="payment-panel-close-btn">&#215;</span>
         <h3 class="color-tech-blue">Over the Counter</h3>
         <p class="color-666">Pay manually to Tech Noblade staff. Then click below.</p>
         <div class="bg-f8f9fa p-15 br-12 my-20">
@@ -163,12 +171,43 @@
             <button onclick="submitReference('otc-ref', this)" class="btn btn-primary btn-full">Submit Ref</button>
             <div id="otc-ref-msg"></div>
         </div>
+        <div class="panel-footer-mini">
+            <span class="panel-footer-brand">&#128241; Tech Noblade &amp; Top Up</span>
+            <span class="panel-footer-links"><a href="../shared/about.php">About</a> &bull; <a href="../shared/contact.php">Contact</a></span>
+        </div>
     </div>
 
     <!-- Footer -->
-    <?php include '../shared/partials/footer.php'; ?>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col footer-col-left">
+                    <a href="../index.php" class="nav-link-brand-footer">
+                        <h2 class="logo footer-logo"><img src="../assets/images/logo.jpeg" class="logo-img logo-img-footer" alt="Logo"> Tech Noblade</h2>
+                    </a>
+                    <p class="footer-tagline">"Smart Solutions for Phones and Gamers."</p>
+                </div>
+                <div class="footer-col footer-col-middle">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="products.php">Game Top-Up</a></li>
+                        <li><a href="repair.php">Tech Repair</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-col-right">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../shared/about.php">About</a></li>
+                        <li><a href="../shared/contact.php">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Tech Noblade &amp; Top Up. All rights reserved.</p>
+        </div>
+    </footer>
     <script src="../assets/js/payment.js?v=<?php echo time(); ?>"></script>
 <?php include '../shared/partials/auth-modal.php'; ?>
 </body>
 </html>
-

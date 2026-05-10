@@ -55,11 +55,30 @@
     .nav-links li:not(:last-child) { display: none; }
     .nav-links li { margin-left: 0; }
 
-    /* Disable side-nav logo clicking and safely push it below the close button matrix */
-    .side-menu .logo-link { pointer-events: none !important; cursor: default !important; }
+    /* Standardized Side Nav Branding */
+    .side-menu .logo {
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin-bottom: 20px !important;
+        padding-top: 25px !important;
+        border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+    }
     
-    /* Side Nav Adjustment (Maintain massive logo inside side menu without crowding the right side) */
-    .side-menu .logo-img { width: 230px !important; min-width: 230px !important; max-width: 230px !important; height: auto !important; margin-top: 30px; margin-bottom: 25px; margin-left: -5px; }
+    .side-menu.side-menu .side-logo-img,
+    .side-menu .logo-img.side-logo-img,
+    .side-menu .logo-img { 
+        width: 200px !important; 
+        min-width: 200px !important;
+        height: auto !important; 
+        margin: 0 auto !important;
+        object-fit: contain !important;
+        display: block !important;
+    }
+
+    .side-menu .logo-text {
+        display: none !important;
+    }
 
     /* Slideshow / Hero - Balanced for Mobile */
     .splash-header { 
@@ -138,7 +157,15 @@
         margin-right: 0 !important;
         box-sizing: border-box;
     }
-.close-btn { position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 1.5rem; }
+.close-btn { 
+    position: absolute; 
+    top: 15px; 
+    right: 15px; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+}
 
     .connect-btn {
         margin-top: 15px !important;

@@ -1,4 +1,4 @@
-﻿/* Basic Reset */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
@@ -1138,6 +1138,35 @@ footer {
     max-width: 500px;
     width: 90%;
     color: #333 !important;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Panel Mini Footer */
+.panel-footer-mini {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e8eef8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: #999;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.panel-footer-brand {
+    font-weight: 700;
+    color: #0050FF;
+    opacity: 0.75;
+}
+.panel-footer-links a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.panel-footer-links a:hover {
+    color: #0050FF;
 }
 
 .payment-overlay {
@@ -2532,8 +2561,58 @@ footer {
     /* Disable side-nav logo clicking and safely push it below the close button matrix */
     .side-menu .logo-link { pointer-events: none !important; cursor: default !important; }
     
-    /* Side Nav Adjustment (Maintain massive logo inside side menu without crowding the right side) */
-    .side-menu .logo-img { width: 230px !important; min-width: 230px !important; max-width: 230px !important; height: auto !important; margin-top: 30px; margin-bottom: 25px; margin-left: -5px; }
+    /* Standardized Side Nav Branding (Image only, centered) */
+    .side-menu .logo {
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin-bottom: 25px !important;
+        padding-top: 10px !important;
+        padding-bottom: 15px !important;
+        border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+    }
+
+    .side-menu .logo-img { 
+        height: 100px !important; 
+        width: auto !important; 
+        min-width: unset !important; 
+        max-width: 90% !important; 
+        margin: 0 auto !important;
+        border-radius: 8px !important;
+        object-fit: contain !important;
+    }
+
+    .side-menu .logo-text { display: none !important; }
+
+    /* Close button positioning & styling */
+    .close-btn-pos {
+        position: absolute !important;
+        top: 18px !important;
+        right: 18px !important;
+        width: 32px !important;
+        height: 32px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: #f8f9fa !important;
+        border-radius: 50% !important;
+        color: #555 !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        z-index: 1010 !important;
+        border: 1px solid rgba(0,0,0,0.05) !important;
+    }
+
+    .close-btn-pos:hover {
+        background: #0050FF !important;
+        color: #fff !important;
+        transform: rotate(90deg) !important;
+    }
+
+    .close-btn-pos svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
 
     /* Slideshow / Hero - Balanced for Mobile */
     .splash-header { 
@@ -3225,9 +3304,10 @@ footer {
 }
 .walking-anim-pos {
     position: absolute !important;
-    bottom: 5px !important; /* Move above the line */
+    bottom: 8px !important;
+    left: 5% !important;
     transform: translateX(-50%) !important;
-    height: 60px !important; /* Reduced from huge size */
+    height: 60px !important;
     width: auto !important;
     transition: left 1s linear !important;
     z-index: 5 !important;
@@ -3804,7 +3884,7 @@ img[alt*="Logo"], .logo-img, .cp-logo-img, .brand img {
 
 /* Smooth transition for walker to sync with progress bar */
 #walking-anim {
-    transition: left 1.5s ease-in-out !important;
+    transition: left 1s linear !important;
 }
 
 /* Make chevron a text element instead of an image for guaranteed load */

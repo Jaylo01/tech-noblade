@@ -15,7 +15,7 @@
     <input type="checkbox" id="side-menu-toggle" class="side-menu-toggle">
     <div class="side-menu-overlay"></div>
     <aside class="side-menu">
-        <label for="side-menu-toggle" class="close-btn close-btn-pos">×</label>
+        <label for="side-menu-toggle" class="close-btn close-btn-pos"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></label>
         <a href="../index.php" class="logo-link">
             <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Logo"> Tech Noblade</h2>
         </a>
@@ -42,7 +42,7 @@
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../shared/about.php">About</a></li>
                     <li><a href="../shared/contact.php">Contact</a></li>
-                    <li><label for="side-menu-toggle" class="nav-toggle-btn">â˜°</label></li>
+                    <li><label for="side-menu-toggle" class="nav-toggle-btn"><img src="../assets/images/icon-menu-bars.svg" class="icon-menu-img"></label></li>
                 </ul>
             </nav>
 
