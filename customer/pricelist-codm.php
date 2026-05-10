@@ -1,6 +1,6 @@
 <?php
 require_once '../api/db.php';
-$game = "Call of Duty: Mobile";
+$game = "Call of Duty Mobile"; // Match exact DB value (no colon)
 
 // Security Hardening: Use prepared statements
 $stmt = $conn->prepare("SELECT SUM(stock) as stock FROM product_skus WHERE game = ? AND price > 0 AND item_name != '' ORDER BY price ASC");
@@ -63,11 +63,12 @@ $stmt->close();
 
     <main class="product-main">
         <div class="product-header-row">
-            <h2 class="section-title product-title">CODM CP</h2>
+            <h2 class="section-title product-title">Call of Duty: Mobile CP</h2>
             <a href="products.php" class="btn btn-back-product">Back to Products</a>
         </div>
         <div class="modal-content product-form-container">
             <h3>Call of Duty: Mobile CP</h3>
+            <p style="color:#0050FF;font-size:0.85rem;margin:0 0 12px;font-weight:600;">🎁 Current Garena PH promos included — get bonus CP on every top-up!</p>
             
             <form action="payment.php" method="get">
                 <!-- CODM Specific Inputs -->
@@ -84,7 +85,7 @@ $stmt->close();
                         <span class="stock-label">Stock: <span id="stock-count"><?php echo $stock; ?></span></span>
                     </div>
                 </div>
-                <input type="hidden" name="game" value="Call of Duty: Mobile">
+                <input type="hidden" name="game" value="Call of Duty Mobile">
                 <ul class="pricing-list" id="pricing-list">
                     <?php
                     // Security Hardening: Use prepared statements
