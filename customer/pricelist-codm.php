@@ -27,9 +27,14 @@ $stmt->close();
     <input type="checkbox" id="side-menu-toggle" class="side-menu-toggle">
     <div class="side-menu-overlay"></div>
     <aside class="side-menu">
-        <label for="side-menu-toggle" class="close-btn close-btn-pos"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></label>
+        <label for="side-menu-toggle" class="close-btn close-btn-pos"><svg width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg></label>
         <a href="../index.php" class="logo-link">
-            <h2 class="logo side-logo-container"><img src="../assets/images/logo.jpeg" class="logo-img side-logo-img" alt="Tech Noblade Logo"></h2>
+            <h2 class="logo side-logo-container"><img src="../assets/images/logo.jpeg" class="logo-img side-logo-img"
+                    alt="Tech Noblade Logo"></h2>
         </a>
 
         <a href="../index.php">Home</a>
@@ -39,13 +44,14 @@ $stmt->close();
         <a href="../shared/about.php">About</a>
         <a href="../shared/contact.php">Contact</a>
 
-    <?php include '../shared/partials/side-nav-auth.php'; ?>
+        <?php include '../shared/partials/side-nav-auth.php'; ?>
     </aside>
 
     <header class="navbar">
         <div class="container">
             <a href="../index.php" class="logo-link">
-                <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Tech Noblade Logo"> Tech Noblade</h2>
+                <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Tech Noblade Logo"> Tech
+                    Noblade</h2>
                 <span class="tagline-nav">"Smart Solutions for Phones and Gamers."</span>
             </a>
 
@@ -54,7 +60,8 @@ $stmt->close();
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../shared/about.php">About</a></li>
                     <li><a href="../shared/contact.php">Contact</a></li>
-                    <li><label for="side-menu-toggle" class="nav-toggle-btn"><img src="../assets/images/icon-menu-bars.svg" class="icon-menu-img"></label></li>
+                    <li><label for="side-menu-toggle" class="nav-toggle-btn"><img
+                                src="../assets/images/icon-menu-bars.svg" class="icon-menu-img"></label></li>
                 </ul>
             </nav>
 
@@ -68,13 +75,14 @@ $stmt->close();
         </div>
         <div class="modal-content product-form-container">
             <h3>Call of Duty: Mobile CP</h3>
-            <p style="color:#0050FF;font-size:0.85rem;margin:0 0 12px;font-weight:600;">🎁 Current Garena PH promos included — get bonus CP on every top-up!</p>
-            
+
+
             <form action="payment.php" method="get">
                 <!-- CODM Specific Inputs -->
                 <div class="product-form-group">
                     <label for="user-id" class="product-form-label">OpenID / Player ID:</label>
-                    <input type="text" name="userid" id="user-id" placeholder="1234567890" required class="product-form-input">
+                    <input type="text" name="userid" id="user-id" placeholder="1234567890" required
+                        class="product-form-input">
                 </div>
                 <div class="product-form-group">
                     <label class="product-form-label">Quantity:</label>
@@ -94,20 +102,21 @@ $stmt->close();
                     $stmt->execute();
                     $res = $stmt->get_result();
                     $first = true;
-                    while($row = $res->fetch_assoc()):
+                    while ($row = $res->fetch_assoc()):
                         $radioId = "m" . $row['id'];
-                    ?>
-                    <li>
-                        <input type="radio" name="product" value="<?php echo $row['item_name']; ?>|₱<?php echo number_format($row['price'], 2); ?>" 
-                                 id="<?php echo $radioId; ?>" class="price-radio" 
-                                 data-stock="<?php echo $row['stock']; ?>"
-                                 <?php echo $first ? 'checked' : ''; ?>>
-                        <label for="<?php echo $radioId; ?>">
-                            <span><?php echo $row['item_name']; ?></span> 
-                            <span>₱<?php echo number_format($row['price'], 2); ?></span>
-                        </label>
-                    </li>
-                    <?php $first = false; endwhile; $stmt->close(); ?>
+                        ?>
+                        <li>
+                            <input type="radio" name="product"
+                                value="<?php echo $row['item_name']; ?>|₱<?php echo number_format($row['price'], 2); ?>"
+                                id="<?php echo $radioId; ?>" class="price-radio" data-stock="<?php echo $row['stock']; ?>"
+                                <?php echo $first ? 'checked' : ''; ?>>
+                            <label for="<?php echo $radioId; ?>">
+                                <span><?php echo $row['item_name']; ?></span>
+                                <span>₱<?php echo number_format($row['price'], 2); ?></span>
+                            </label>
+                        </li>
+                        <?php $first = false; endwhile;
+                    $stmt->close(); ?>
                 </ul>
                 <button type="submit" class="btn btn-primary btn-full mt-20">Proceed to Payment</button>
             </form>
@@ -119,7 +128,8 @@ $stmt->close();
             <div class="footer-grid">
                 <div class="footer-col footer-col-left">
                     <a href="../index.php" class="logo-link">
-                        <h2 class="logo-text-white"><img src="../assets/images/logo.jpeg" class="logo-img-small" alt="Logo"> Tech Noblade</h2>
+                        <h2 class="logo-text-white"><img src="../assets/images/logo.jpeg" class="logo-img-small"
+                                alt="Logo"> Tech Noblade</h2>
                     </a>
                     <p class="footer-tagline">Smart Solutions for Phones and Gamers..</p>
                 </div>
@@ -148,8 +158,7 @@ $stmt->close();
     </footer>
 
     <script src="../assets/js/products.js?v=<?= time() ?>"></script>
-<?php include '../shared/partials/auth-modal.php'; ?>
+    <?php include '../shared/partials/auth-modal.php'; ?>
 </body>
 
 </html>
-
