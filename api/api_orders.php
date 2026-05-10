@@ -44,9 +44,25 @@ switch ($method) {
         $order_id    = $data['id']          ?? null;
         $game        = $data['game']        ?? '';
         $item        = $data['item']        ?? '';
-        $price       = (float)($data['price']  ?? 0);
         $qty         = (int)($data['qty']    ?? 0);
-        $total       = (float)($data['total']  ?? 0);
+        
+        // --- 🚨 SECURITY PATCH: Server-Side Price Calculation ---
+        // Never trust client-provided pricing data. Form total based on SKUs table.
+        $stmt_price = $conn->prepare("SELECT price FROM product_skus WHERE game = ? AND item_name = ? LIMIT 1");
+        $stmt_price->bind_param('ss', $game, $item);
+        $stmt_price->execute();
+        $price_row = $stmt_price->get_result()->fetch_assoc();
+        $stmt_price->close();
+
+        if (!$price_row || (float)$price_row['price'] <= 0) {
+            echo json_encode(["error" => "Invalid product selected or item is unavailable."]);
+            break;
+        }
+
+        $price = (float)$price_row['price'];
+        $total = $price * $qty;
+        // ---------------------------------------------------------
+
         $pmethod     = $data['method']      ?? '';
         $userid      = $data['userid']      ?? '';
         $zoneid      = $data['zoneid']      ?? '';
@@ -82,6 +98,12 @@ switch ($method) {
         break;
 
     case 'PATCH':
+        if (empty($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            http_response_code(403);
+            echo json_encode(["error" => "Forbidden. Admin access required."]);
+            break;
+        }
+
         $data     = json_decode(file_get_contents("php://input"), true);
         $order_id = $data['id']     ?? '';
         $status   = $data['status'] ?? '';
@@ -113,6 +135,12 @@ switch ($method) {
         break;
 
     case 'DELETE':
+        if (empty($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+            http_response_code(403);
+            echo json_encode(["error" => "Forbidden. Admin access required."]);
+            break;
+        }
+
         $stmt = $conn->prepare("DELETE FROM orders WHERE order_id = ?");
         $stmt->bind_param('s', $_GET['id']);
         echo json_encode($stmt->execute() ? ["success" => true] : ["error" => $conn->error]);
