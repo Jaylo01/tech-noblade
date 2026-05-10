@@ -3305,7 +3305,7 @@ footer {
 .walking-anim-pos {
     position: absolute !important;
     bottom: 8px !important;
-    left: 5% !important;
+
     transform: translateX(-50%) !important;
     height: 60px !important;
     width: auto !important;
