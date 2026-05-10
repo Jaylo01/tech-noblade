@@ -1,6 +1,6 @@
 <?php
 require_once '../api/db.php';
-$game = "Call of Duty Mobile"; // Match exact DB value (no colon)
+$game = "Call of Duty: Mobile"; // Match exact DB value (with colon)
 
 // Security Hardening: Use prepared statements
 $stmt = $conn->prepare("SELECT SUM(stock) as stock FROM product_skus WHERE game = ? AND price > 0 AND item_name != '' ORDER BY price ASC");
@@ -93,7 +93,7 @@ $stmt->close();
                         <span class="stock-label">Stock: <span id="stock-count"><?php echo $stock; ?></span></span>
                     </div>
                 </div>
-                <input type="hidden" name="game" value="Call of Duty Mobile">
+                <input type="hidden" name="game" value="Call of Duty: Mobile">
                 <ul class="pricing-list" id="pricing-list">
                     <?php
                     // Security Hardening: Use prepared statements

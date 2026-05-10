@@ -481,14 +481,23 @@ function loadFeedbackFromServer() {
 }
 
 function deleteFeedback(id) {
+    console.log('Attempting to delete feedback ID:', id);
     fetch('../api/api_feedback.php?id=' + id, { method: 'DELETE' })
-        .then(res => res.json())
+        .then(res => {
+            console.log('Delete response status:', res.status);
+            return res.json();
+        })
         .then(data => {
+            console.log('Delete data response:', data);
             if(data.success) {
                 loadFeedbackFromServer();
             } else {
-                alert('Could not delete feedback');
+                alert('Could not delete feedback: ' + (data.error || 'Unknown error'));
             }
+        })
+        .catch(err => {
+            console.error('Delete feedback fetch error:', err);
+            alert('A network error occurred while deleting feedback.');
         });
 }
 

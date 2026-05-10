@@ -36,13 +36,15 @@ elseif ($method === 'DELETE') {
         http_response_code(403);
         exit;
     }
-    $id = intval($_GET['id'] ?? 0);
+    $id = intval($_REQUEST['id'] ?? 0);
     $stmt = $conn->prepare("DELETE FROM feedback WHERE id=?");
     $stmt->bind_param("i", $id);
-    if($stmt->execute()) {
+    $stmt->execute();
+    
+    if($stmt->affected_rows > 0) {
         echo json_encode(['success' => true]);
     } else {
-        echo json_encode(['error' => 'Delete failed']);
+        echo json_encode(['error' => 'No record deleted. ID might be invalid or already removed.', 'id_received' => $id]);
     }
 }
 ?>
