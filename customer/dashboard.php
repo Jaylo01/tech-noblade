@@ -208,7 +208,7 @@ $customer_email = htmlspecialchars($_SESSION['customer_email']);
         }
 
         async function loadOrders() {
-            const res  = await fetch('../api/api_customer.php?type=orders');
+            const res  = await fetch('../api/crud/api_customer.php?type=orders');
             const data = await res.json();
             if (!Array.isArray(data)) return;
 
@@ -250,7 +250,7 @@ $customer_email = htmlspecialchars($_SESSION['customer_email']);
         }
 
         async function loadRepairs() {
-            const res  = await fetch('../api/api_customer.php?type=services');
+            const res  = await fetch('../api/crud/api_customer.php?type=services');
             const data = await res.json();
             if (!Array.isArray(data)) return;
 

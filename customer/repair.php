@@ -168,7 +168,7 @@
                     const formData = new FormData(document.getElementById('service-form'));
                     const data = Object.fromEntries(formData.entries());
 
-                    fetch('../api/api_services.php', {
+                    fetch('../api/crud/api_services.php', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data)

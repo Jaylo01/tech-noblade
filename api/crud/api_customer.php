@@ -11,7 +11,7 @@ if (empty($_SESSION['customer_id']) || ($_SESSION['role'] ?? '') !== 'customer')
     exit;
 }
 
-require_once 'db.php';
+require_once '../db.php';
 $customer_id = (int) $_SESSION['customer_id'];
 $type        = $_GET['type'] ?? 'orders';
 

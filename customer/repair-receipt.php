@@ -234,7 +234,7 @@
         async function checkStatus() {
             if (!refNo) return;
             try {
-                const response = await fetch(`../api/api_services.php?ref=${encodeURIComponent(refNo)}`);
+                const response = await fetch(`../api/crud/api_services.php?ref=${encodeURIComponent(refNo)}`);
                 const data = await response.json();
                 
                 if (data.error) return;

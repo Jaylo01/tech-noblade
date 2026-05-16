@@ -1,7 +1,7 @@
 <?php
 // php/api_stats.php
 header("Content-Type: application/json");
-require_once 'db.php';
+require_once '../db.php';
 
 $stats = [];
 

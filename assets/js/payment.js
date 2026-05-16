@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // POST to PHP API
-        fetch('../api/api_orders.php', {
+        fetch('../api/crud/api_orders.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderData)
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const startPolling = (orderId) => {
         const poll = setInterval(() => {
-            fetch(`../api/api_orders.php?id=${orderId}`)
+            fetch(`../api/crud/api_orders.php?id=${orderId}`)
                 .then(res => res.text())
                 .then(text => {
                     try {

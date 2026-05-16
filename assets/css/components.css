@@ -328,12 +328,12 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(8px);
     z-index: 9999;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     padding: 20px;
 }
 
@@ -368,6 +368,6 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-.success-card { max-width: 400px; text-align: center; padding: 40px; border: 4px solid #00D4FF; margin: auto; }
+.success-card { max-width: 400px; text-align: center; padding: 40px; border: 4px solid #00D4FF; margin: 0; }
 .success-title { color: #0050FF; margin-bottom: 20px; font-weight: 800; }
 .success-text { color: #555; margin-bottom: 30px; }

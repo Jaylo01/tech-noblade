@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
             checkSubmitButton(skuStock);
         }
 
-        fetch('../api/api_products.php')
+        fetch('../api/crud/api_products.php')
             .then(res => res.json())
             .then(data => {
                 if (gameName && stockDisplay) {

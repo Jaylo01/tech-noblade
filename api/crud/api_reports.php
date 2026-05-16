@@ -4,8 +4,13 @@
  * Aggregates sales and service data for business intelligence.
  */
 header("Content-Type: application/json");
-require_once 'db.php';
-require_once 'auth_admin_guard.php'; // Ensure only admins can access
+require_once '../db.php';
+if (session_status() === PHP_SESSION_NONE) session_start();
+if (empty($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    http_response_code(403);
+    echo json_encode(["error" => "Forbidden. Admin access required."]);
+    exit;
+}
 
 $period = $_GET['period'] ?? 'all'; // all, today, week, month
 

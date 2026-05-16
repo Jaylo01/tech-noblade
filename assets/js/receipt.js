@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const orderId = urlParams.get('orderId');
-    
+
     if (!orderId) {
         alert("Verification Error: No Order ID found.");
         window.location.href = '../index.php';
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (progressInit) progressInit.style.width = '5%';
 
     // Fetch Order from Server
-    fetch(`../api/api_orders.php?id=${orderId}`)
+    fetch(`../api/crud/api_orders.php?id=${orderId}`)
         .then(res => res.json())
         .then(order => {
             if (!order || order.error) {
@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             updateReceiptUI(order);
-            // Run status check immediately then start polling
             updateTrackerStatus(order.status);
             startStatusPolling(orderId);
         });
@@ -32,8 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateReceiptUI(order) {
         document.getElementById('game-name').innerText = order.game;
         document.getElementById('item-amount').innerText = `${order.qty}x ${order.item}`;
-        document.getElementById('item-price').innerText = `\u20b1${parseFloat(order.price).toLocaleString('en-PH', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
-        document.getElementById('total-paid').innerText = `\u20b1${parseFloat(order.total).toLocaleString('en-PH', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        document.getElementById('item-price').innerText = `\u20b1${parseFloat(order.price).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        document.getElementById('total-paid').innerText = `\u20b1${parseFloat(order.total).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
         document.getElementById('payment-method').innerText = order.method.toUpperCase();
         document.getElementById('ref-no').innerText = order.order_id;
 
@@ -91,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function startStatusPolling(orderId) {
         const polling = setInterval(() => {
-            fetch(`../api/api_orders.php?id=${orderId}`)
+            fetch(`../api/crud/api_orders.php?id=${orderId}`)
                 .then(res => res.json())
                 .then(currentOrder => {
                     if (!currentOrder || currentOrder.error) return;
@@ -102,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         clearInterval(polling);
                     }
                 })
-                .catch(() => {}); // silently ignore network errors during polling
+                .catch(() => { }); // silently ignore network errors during polling
         }, 3000);
     }
 });

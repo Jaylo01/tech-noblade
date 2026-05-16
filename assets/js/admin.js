@@ -1,4 +1,4 @@
-﻿/**
+/**
  * admin.js - Centralized administrative logic for Tech Noblade.
  * Handles dashboard analytics, order processing, inventory management, and repair tracking.
  */
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadAnalytics() {
-    fetch('../api/api_stats.php')
+    fetch('../api/crud/api_stats.php')
         .then(res => res.json())
         .then(data => {
             document.getElementById('stat-revenue').innerHTML = '&#8369;' + data.total_revenue.toLocaleString();
@@ -123,7 +123,7 @@ function showTab(tabId) {
 }
 
 function loadOrdersFromServer() {
-    fetch('../api/api_orders.php')
+    fetch('../api/crud/api_orders.php')
         .then(res => res.json())
         .then(orders => {
             const tbody = document.getElementById('orders-body');
@@ -158,7 +158,7 @@ function loadReferencesTable() {
     const tbody = document.getElementById('references-tab-body');
     if (!tbody) return;
 
-    fetch('../api/api_orders.php')
+    fetch('../api/crud/api_orders.php')
         .then(res => res.json())
         .then(orders => {
             const refs = orders.filter(o => o.payment_ref && o.payment_ref !== '---');
@@ -183,7 +183,7 @@ function loadReferencesTable() {
 }
 
 function confirmOrderOnServer(orderId) {
-    fetch('../api/api_orders.php', {
+    fetch('../api/crud/api_orders.php', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: orderId, status: 'Confirmed' })
@@ -191,7 +191,7 @@ function confirmOrderOnServer(orderId) {
 }
 
 function deleteOrderFromServer(orderId) {
-    fetch(`../api/api_orders.php?id=${orderId}`, { method: 'DELETE' })
+    fetch(`../api/crud/api_orders.php?id=${orderId}`, { method: 'DELETE' })
         .then(() => { refreshData(); })
         .catch(err => console.error('Delete order failed:', err));
 }
@@ -203,7 +203,7 @@ function loadProductsFromServer() {
         openGroups.add(el.textContent.split(' (')[0]);
     });
 
-    fetch('../api/api_products.php')
+    fetch('../api/crud/api_products.php')
         .then(res => res.json())
         .then(items => {
             const container = document.getElementById('products-container');
@@ -267,7 +267,7 @@ function quickAdjustStock(id, change, btnEl) {
     badge.className = 'status-badge ' + (newVal < 10 ? 'status-low' : 'status-confirmed');
     
     // Server partial update
-    fetch('../api/api_products.php', {
+    fetch('../api/crud/api_products.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: id, stock: newVal })
@@ -297,7 +297,7 @@ function saveProductChanges() {
     const price = document.getElementById('p-price').value;
     const stock = document.getElementById('p-stock').value;
 
-    fetch('../api/api_products.php', {
+    fetch('../api/crud/api_products.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, game, item_name: item, price, stock })
@@ -315,7 +315,7 @@ function saveProductChanges() {
 }
 
 function loadRepairsFromServer() {
-    fetch('../api/api_services.php')
+    fetch('../api/crud/api_services.php')
         .then(res => res.json())
         .then(services => {
             const tbody = document.getElementById('repairs-body');
@@ -348,7 +348,7 @@ function loadRepairsFromServer() {
 let currentRepair = null;
 
 function viewRepairDetails(id) {
-    fetch('../api/api_services.php')
+    fetch('../api/crud/api_services.php')
         .then(res => res.json())
         .then(services => {
             const s = services.find(x => x.id == id);
@@ -420,7 +420,7 @@ function saveRepairChanges(id) {
     const status = document.getElementById('r-status').value;
     const quote = document.getElementById('r-quote').value;
     
-    fetch('../api/api_services.php', {
+    fetch('../api/crud/api_services.php', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -441,7 +441,7 @@ function saveRepairChanges(id) {
 }
 
 function deleteRepair(id) {
-    fetch(`../api/api_services.php?id=${id}`, { method: 'DELETE' })
+    fetch(`../api/crud/api_services.php?id=${id}`, { method: 'DELETE' })
         .then(() => loadRepairsFromServer());
 }
 
@@ -453,7 +453,7 @@ function setActiveNav(btn) {
 
 // Feedback APIs
 function loadFeedbackFromServer() {
-    fetch('../api/api_feedback.php')
+    fetch('../api/crud/api_feedback.php')
         .then(res => res.json())
         .then(feedbacks => {
             const tbody = document.getElementById('feedback-body');
@@ -482,7 +482,7 @@ function loadFeedbackFromServer() {
 
 function deleteFeedback(id) {
     console.log('Attempting to delete feedback ID:', id);
-    fetch('../api/api_feedback.php?id=' + id, { method: 'DELETE' })
+    fetch('../api/crud/api_feedback.php?id=' + id, { method: 'DELETE' })
         .then(res => {
             console.log('Delete response status:', res.status);
             return res.json();
@@ -520,7 +520,7 @@ function loadReport(period) {
     
     tbody.innerHTML = '<tr><td colspan="5" class="text-center">Analyzing data...</td></tr>';
     
-    fetch(`../api/api_reports.php?period=${period}`)
+    fetch(`../api/crud/api_reports.php?period=${period}`)
         .then(res => res.json())
         .then(data => {
             // Update Overview Cards
@@ -557,7 +557,7 @@ function loadReport(period) {
 function deleteProductOnServer(id) {
     if (!confirm('Are you sure you want to delete this product?')) return;
     
-    fetch('../api/api_products.php?id=' + id, {
+    fetch('../api/crud/api_products.php?id=' + id, {
         method: 'DELETE'
     })
     .then(res => res.json())

@@ -14,7 +14,11 @@
     <input type="checkbox" id="side-menu-toggle" class="side-menu-toggle">
     <div class="side-menu-overlay"></div>
     <aside class="side-menu">
-        <label for="side-menu-toggle" class="close-btn close-btn-pos"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></label>
+        <label for="side-menu-toggle" class="close-btn close-btn-pos"><svg width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg></label>
         <a href="../index.php" class="logo-link">
             <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Logo"> Tech Noblade</h2>
         </a>
@@ -26,13 +30,14 @@
         <a href="../shared/about.php">About</a>
         <a href="../shared/contact.php">Contact</a>
 
-    <?php include '../shared/partials/side-nav-auth.php'; ?>
+        <?php include '../shared/partials/side-nav-auth.php'; ?>
     </aside>
 
     <header class="navbar">
         <div class="container">
             <a href="../index.php" class="logo-link">
-                <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Tech Noblade Logo"> Tech Noblade</h2>
+                <h2 class="logo"><img src="../assets/images/logo.jpeg" class="logo-img" alt="Tech Noblade Logo"> Tech
+                    Noblade</h2>
                 <span class="tagline-nav">"Smart Solutions for Phones and Gamers."</span>
             </a>
 
@@ -41,7 +46,8 @@
                     <li><a href="../index.php">Home</a></li>
                     <li><a href="../shared/about.php">About</a></li>
                     <li><a href="../shared/contact.php">Contact</a></li>
-                    <li><label for="side-menu-toggle" class="nav-toggle-btn"><img src="../assets/images/icon-menu-bars.svg" class="icon-menu-img"></label></li>
+                    <li><label for="side-menu-toggle" class="nav-toggle-btn"><img
+                                src="../assets/images/icon-menu-bars.svg" class="icon-menu-img"></label></li>
                 </ul>
             </nav>
         </div>
@@ -54,7 +60,8 @@
                 <div class="tracker-line-container">
                     <div class="tracker-line-bg"></div>
                     <div class="tracker-line-fill" id="status-progress"></div>
-                    <img src="../assets/images/techno-walking_transparent.gif" id="walking-anim" class="walking-anim-pos" alt="Walking">
+                    <img src="../assets/images/techno-walking_transparent.gif" id="walking-anim"
+                        class="walking-anim-pos" alt="Walking">
                 </div>
                 <div class="status-steps-overlay">
                     <div class="status-step" id="step1">
@@ -107,7 +114,7 @@
                 <!-- Product Details -->
                 <div class="product-summary-card">
                     <h3 class="summary-card-header">Product Summary</h3>
-                    
+
                     <div class="flex-between mb-15">
                         <div>
                             <p id="game-name" class="font-weight-800 color-333 mb-4 fs-1-0">Mobile Legends</p>
@@ -130,7 +137,8 @@
                     </div>
                 </div>
 
-                <p class="mt-30 color-888 fs-0-85 italic text-center">Please keep this receipt for your records. The credits will be added to your account within 5-15 minutes.</p>
+                <p class="mt-30 color-888 fs-0-85 italic text-center">Please keep this receipt for your records. The
+                    credits will be added to your account within 5-15 minutes.</p>
                 <div class="mt-30 text-center">
                     <a href="../index.php" class="btn btn-primary btn-wide">Back to Home</a>
                 </div>
@@ -143,7 +151,8 @@
             <div class="footer-grid">
                 <div class="footer-col footer-col-left">
                     <a href="../index.php" class="logo-link">
-                        <h2 class="logo color-fff"><img src="../assets/images/logo.jpeg" class="logo-img-small" alt="Logo"> Tech Noblade</h2>
+                        <h2 class="logo color-fff"><img src="../assets/images/logo.jpeg" class="logo-img-small"
+                                alt="Logo"> Tech Noblade</h2>
                     </a>
                     <p class="footer-tagline">Smart Solutions for Phones and Gamers..</p>
                 </div>
@@ -170,9 +179,7 @@
     </footer>
 
     <script src="../assets/js/receipt.js"></script>
-<?php include '../shared/partials/auth-modal.php'; ?>
+    <?php include '../shared/partials/auth-modal.php'; ?>
 </body>
 
 </html>
-
-
