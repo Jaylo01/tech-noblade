@@ -1,31 +1,24 @@
 # Dependencies
 /node_modules/
-/vendor/
 
-# IDE & Editor specific
+# IDE
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# OS specific
+# OS
 Thumbs.db
 .DS_Store
 desktop.ini
 
-# Logs & Temp
+# Logs
 *.log
 error_log
-/tmp/
-*.tmp
-*.bak
-dump.sql
-/db/backups/
 
-# Gemini AI / Antigravity artifacts
+# Gemini AI artifacts
 .gemini/
 .antigravityignore
-/brain/
-task.md
-walkthrough.md
-implementation_plan.md
+
+# Temp files
+*.tmp
+*.bak
+*.swp
