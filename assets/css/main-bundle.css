@@ -3969,29 +3969,38 @@ footer {
         cursor: default !important;
     }
 
-    /* Standardized Side Nav Branding (Image only, centered) */
+    /* Standardized Side Nav Branding (Stacked Image & Text, Centered) */
     .side-menu .logo {
         display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
         justify-content: center !important;
+        text-align: center !important;
         width: 100% !important;
         margin-bottom: 25px !important;
         padding-top: 10px !important;
-        padding-bottom: 15px !important;
+        padding-bottom: 20px !important;
         border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+        gap: 12px !important;
     }
 
     .side-menu .logo-img {
-        height: 100px !important;
+        height: 80px !important;
+        /* Adjusted for stacked layout */
         width: auto !important;
-        min-width: unset !important;
-        max-width: 90% !important;
+        max-width: 180px !important;
         margin: 0 auto !important;
-        border-radius: 8px !important;
+        border-radius: 12px !important;
         object-fit: contain !important;
+        transition: transform 0.3s ease !important;
     }
 
-    .side-menu .logo-text {
-        display: none !important;
+    .side-logo-text {
+        font-size: 1.4rem !important;
+        font-weight: 900 !important;
+        color: #0050FF !important;
+        letter-spacing: -0.5px !important;
+        display: block !important;
     }
 
     /* Close button positioning & styling */
