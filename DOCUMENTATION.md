@@ -56,32 +56,23 @@ graph TD
 
 ## 🔄 2. System Process Flows
 
-### 2.1 Order & Top-Up Lifecycle
-Simplified flow of a gaming top-up transaction from request to fulfillment.
+### 2.1 Order & Top-Up Lifecycle (Simplified)
+Imagine this as a "Grab/Lazada" process.
 
 ```mermaid
-sequenceDiagram
-    participant C as Customer
-    participant F as Frontend (UI)
-    participant A as API (PHP)
-    participant D as Database (MySQL)
-    participant AD as Admin Dashboard
+graph TD
+    A[🛒 CUSTOMER: Selects & Pays] --> B[💾 SYSTEM: Saves Order as 'Pending']
+    B --> C[🕵️ ADMIN: Verifies Payment]
+    C --> D{Payment Valid?}
+    D -- Yes --> E[✅ DONE: Order Confirmed & Item Sent]
+    D -- No --> F[❌ REJECTED: Order Cancelled]
 
-    C->>F: Selects Game & Product
-    C->>F: Enters UserID & ZoneID
-    F->>A: Checks Stock Availability
-    A->>D: Query Inventory
-    D-->>A: Stock OK
-    A-->>F: Proceed to Payment
-    C->>F: Submits Payment Reference
-    F->>A: POST Create Order
-    A->>D: Save Order (Status: Pending)
-    D-->>A: Order Saved
-    A-->>F: Show Receipt / Start Tracker
-    AD->>A: Admin Verifies Payment
-    A->>D: Update Status (Confirmed)
-    D-->>A: Updated
-    A-->>F: Tracker UI Updates (0% -> 50% -> 100%)
+    %% Real-time synchronization
+    E -. "Updates UI" .-> G((Customer Tracker: 100%))
+    
+    style A fill:#e1f5fe,stroke:#01579b
+    style C fill:#fff9c4,stroke:#fbc02d
+    style E fill:#c8e6c9,stroke:#2e7d32
 ```
 
 ---
