@@ -649,9 +649,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1500px;
+    max-width: none;
     margin: 0 auto;
-    width: 95%;
+    width: 100%;
+    padding: 0 60px;
 }
 
 .logo {
@@ -694,7 +695,7 @@ body {
 .nav-links a {
     color: #0050FF;
     text-decoration: none;
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 800;
     transition: color 0.3s;
 }
