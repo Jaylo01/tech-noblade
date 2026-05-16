@@ -609,44 +609,34 @@ body {
     display: block;
 }
 
-/* --- Global Sidenav Branding (Always Centered) --- */
+/* --- Global Sidenav Logo (Large & Centered) --- */
 .side-menu .logo-link {
     display: block !important;
     text-decoration: none !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 30px !important;
+    width: 100% !important;
 }
 
 .side-menu .logo {
     display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
     justify-content: center !important;
-    text-align: center !important;
+    align-items: center !important;
     width: 100% !important;
     padding: 10px 0 20px 0 !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-    gap: 12px !important;
+    border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+    margin: 0 !important;
 }
 
 .side-menu .logo-img {
-    height: 85px !important;
-    width: auto !important;
-    max-width: 180px !important;
+    height: auto !important;
+    width: 220px !important; /* Large like requested */
+    max-width: 90% !important;
     display: block !important;
     margin: 0 auto !important;
-    border-radius: 12px !important;
     object-fit: contain !important;
+    border-radius: 12px !important;
 }
-
-.side-logo-text {
-    font-size: 1.4rem !important;
-    font-weight: 900 !important;
-    color: #0050FF !important;
-    letter-spacing: -0.5px !important;
-    display: block !important;
-    margin: 0 !important;
-}
-/* ------------------------------------------------ */
+/* ---------------------------------------------- */
 
 .side-menu h3 {
     color: #0050FF;
@@ -4002,11 +3992,7 @@ footer {
         margin-left: 0;
     }
 
-    /* Disable side-nav logo clicking and safely push it below the close button matrix */
-    .side-menu .logo-link {
-        pointer-events: none !important;
-        cursor: default !important;
-    }
+    /* Close button positioning & styling */
 
     /* Close button positioning & styling */
     .close-btn-pos {

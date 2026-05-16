@@ -23,7 +23,6 @@ $customer_name = $is_customer ? htmlspecialchars($_SESSION['customer_name']) : '
         <a href="index.php" class="logo-link">
             <h2 class="logo side-logo-container">
                 <img src="assets/images/logo.jpeg" class="logo-img side-logo-img" alt="Tech Noblade Logo">
-                <span class="side-logo-text">Tech Noblade</span>
             </h2>
         </a>
         <a href="index.php">Home</a>
