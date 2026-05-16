@@ -265,13 +265,13 @@
                 }
 
                 if (status === 'pending' || status === 'in review') {
-                    if (progress) progress.style.width = '20%';
-                    if (walker) walker.style.left = '20%';
+                    if (progress) progress.style.width = '0%';
+                    if (walker) walker.style.left = '0%';
                     if (statusLabelText) statusLabelText.innerText = 'Request received...';
                     if (step1) { step1.classList.add('active'); step1.classList.add('completed'); }
                 } else if (status === 'verifying' || status === 'processing' || status === 'in progress') {
-                    if (progress) progress.style.width = '60%';
-                    if (walker) walker.style.left = '60%';
+                    if (progress) progress.style.width = '50%';
+                    if (walker) walker.style.left = '50%';
                     if (statusLabelText) statusLabelText.innerText = 'Technician is diagnosing the device...';
                     if (step1) step1.classList.add('completed');
                     if (step2) { step2.classList.add('active'); step2.classList.add('completed'); }

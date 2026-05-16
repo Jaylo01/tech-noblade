@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Set initial walker position immediately so GIF starts at the left edge ---
     const walkerInit = document.getElementById('walking-anim');
     const progressInit = document.getElementById('status-progress');
-    if (walkerInit) walkerInit.style.left = '5%';
-    if (progressInit) progressInit.style.width = '5%';
+    if (walkerInit) walkerInit.style.left = '0%';
+    if (progressInit) progressInit.style.width = '0%';
 
     // Fetch Order from Server
     fetch(`../api/crud/api_orders.php?id=${orderId}`)
@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (status === 'pending' || status === 'verifying') {
             // Step 1 active — Order Placed / Verifying
-            if (walker) walker.style.left = '5%';
-            if (progress) progress.style.width = '5%';
+            if (walker) walker.style.left = '0%';
+            if (progress) progress.style.width = '0%';
             if (statusText) statusText.innerText = 'Order received. Verifying details...';
             if (step1) step1.classList.add('active');
 
