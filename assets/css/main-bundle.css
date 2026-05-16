@@ -609,6 +609,45 @@ body {
     display: block;
 }
 
+/* --- Global Sidenav Branding (Always Centered) --- */
+.side-menu .logo-link {
+    display: block !important;
+    text-decoration: none !important;
+    margin-bottom: 20px !important;
+}
+
+.side-menu .logo {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    padding: 10px 0 20px 0 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    gap: 12px !important;
+}
+
+.side-menu .logo-img {
+    height: 85px !important;
+    width: auto !important;
+    max-width: 180px !important;
+    display: block !important;
+    margin: 0 auto !important;
+    border-radius: 12px !important;
+    object-fit: contain !important;
+}
+
+.side-logo-text {
+    font-size: 1.4rem !important;
+    font-weight: 900 !important;
+    color: #0050FF !important;
+    letter-spacing: -0.5px !important;
+    display: block !important;
+    margin: 0 !important;
+}
+/* ------------------------------------------------ */
+
 .side-menu h3 {
     color: #0050FF;
     margin-bottom: 20px;
@@ -3967,40 +4006,6 @@ footer {
     .side-menu .logo-link {
         pointer-events: none !important;
         cursor: default !important;
-    }
-
-    /* Standardized Side Nav Branding (Stacked Image & Text, Centered) */
-    .side-menu .logo {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
-        width: 100% !important;
-        margin-bottom: 25px !important;
-        padding-top: 10px !important;
-        padding-bottom: 20px !important;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-        gap: 12px !important;
-    }
-
-    .side-menu .logo-img {
-        height: 80px !important;
-        /* Adjusted for stacked layout */
-        width: auto !important;
-        max-width: 180px !important;
-        margin: 0 auto !important;
-        border-radius: 12px !important;
-        object-fit: contain !important;
-        transition: transform 0.3s ease !important;
-    }
-
-    .side-logo-text {
-        font-size: 1.4rem !important;
-        font-weight: 900 !important;
-        color: #0050FF !important;
-        letter-spacing: -0.5px !important;
-        display: block !important;
     }
 
     /* Close button positioning & styling */

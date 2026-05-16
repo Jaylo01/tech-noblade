@@ -55,31 +55,6 @@
     .nav-links li:not(:last-child) { display: none; }
     .nav-links li { margin-left: 0; }
 
-    /* Standardized Side Nav Branding */
-    .side-menu .logo {
-        display: flex !important;
-        justify-content: center !important;
-        width: 100% !important;
-        margin-bottom: 20px !important;
-        padding-top: 25px !important;
-        border-bottom: 1px solid rgba(0,0,0,0.05) !important;
-    }
-    
-    .side-menu.side-menu .side-logo-img,
-    .side-menu .logo-img.side-logo-img,
-    .side-menu .logo-img { 
-        width: 200px !important; 
-        min-width: 200px !important;
-        height: auto !important; 
-        margin: 0 auto !important;
-        object-fit: contain !important;
-        display: block !important;
-    }
-
-    .side-menu .logo-text {
-        display: none !important;
-    }
-
     /* Slideshow / Hero - Balanced for Mobile */
     .splash-header { 
         height: auto !important;
