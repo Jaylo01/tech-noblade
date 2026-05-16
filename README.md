@@ -21,11 +21,11 @@ A comprehensive, responsive, and secure web-based platform designed for gaming t
  Technical Architecture
 
 The platform is organized into distinct functional modules:
- /admin: Administrative logic and dashboard interfaces.
- /customer: Public-facing transaction flows and customer dashboards.
- /api: Core logic layer handling authentication, database interactions, and service endpoints.
- /assets: Centralized repository for styling, scripting, and media assets.
- /shared: Reusable UI components and session management guards.
+ 1. /admin: Administrative logic and dashboard interfaces.
+ 2. /customer: Public-facing transaction flows and customer dashboards.
+ 3. /api: Core logic layer handling authentication, database interactions, and service endpoints.
+ 4. /assets: Centralized repository for styling, scripting, and media assets.
+ 5. /shared: Reusable UI components and session management guards.
 
  Deployment and Configuration
 1. Prerequisites**: PHP 7.4+, MySQL 5.7+ (configured on port 3307 for local environments).
