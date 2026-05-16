@@ -1,104 +1,100 @@
-# 📑 Tech Noblade & Top Up - Technical Documentation
+# 📑 Tech Noblade - Technical Documentation
 
-This document provides a comprehensive technical overview of the Tech Noblade & Top Up management system, detailing its architecture, data flows, and security implementations.
+> [!NOTE]
+> Optimized for both **Light** and **Dark** modes. For a better experience, use the VS Code Markdown Preview.
 
 ---
 
 ## 🏗️ 1. System Architecture
-The platform follows a **Three-Tier Architecture**, designed for high maintainability and security.
+Comprehensive view of our **Three-Tier Architecture**.
 
 ```mermaid
 graph TD
-    %% Users
-    Customer((Customer))
-    Admin((Admin))
+    %% Classes for Dark Mode Visibility
+    classDef frontend fill:#0984e3,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef logic fill:#6c5ce7,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef data fill:#2d3436,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef actor fill:#fdcb6e,stroke:#333,stroke-width:2px,color:#333;
 
-    subgraph "Frontend Layer (UI)"
-        Index[index.php / Landing]
-        CustDash[customer/dashboard.php]
-        AdminDash[admin/dashboard.php]
-        StatusTrack[receipt.php / Tracker]
+    %% Elements
+    Customer([👤 Customer User]):::actor
+    Admin([🔑 Admin/Owner]):::actor
+
+    subgraph "Frontend Layer (Web UI)"
+        Index[index.php / Home]:::frontend
+        Dash[Dynamic Dashboards]:::frontend
     end
 
-    subgraph "Logic & Security (Middleware)"
-        AuthGuard[api/auth_admin_guard.php]
-        DB_Conn[api/db.php]
-        NavShared[shared/nav.php]
+    subgraph "Application Logic (PHP API)"
+        Security[Auth Guard]:::logic
+        CRUD[Order & Inventory Logic]:::logic
     end
 
-    subgraph "API Layer (JSON Endpoints)"
-        AuthAPI[api/auth_login.php]
-        OrderAPI[api/crud/api_orders.php]
-        InventoryAPI[api/crud/api_inventory.php]
-        ReportAPI[api/api_reports.php]
+    subgraph "Data Storage (SQL)"
+        DB[Database Connection]:::data
+        MySQL[(MySQL Server)]:::data
     end
 
-    subgraph "Data Layer"
-        MySQL[(MySQL / Port 3307)]
-    end
-
-    %% Connections
+    %% Flow
     Customer --> Index
-    Admin --> AdminDash
-    
-    Index --> AuthAPI
-    CustDash -- "Fetch" --> OrderAPI
-    StatusTrack -- "Polling" --> OrderAPI
-    
-    AdminDash -- "Admin Guard" --> AuthGuard
-    AdminDash -- "Fetch" --> InventoryAPI
-    
-    OrderAPI & InventoryAPI & AuthAPI --> DB_Conn
-    DB_Conn --> MySQL
+    Admin --> Index
+    Index --> Dash
+    Dash --> CRUD
+    CRUD --> Security
+    Security --> DB
+    DB --> MySQL
+
+    %% Links styling
+    linkStyle default stroke:#00b894,stroke-width:2px;
 ```
 
 ---
 
 ## 🔄 2. System Process Flows
 
-### 2.1 Order & Top-Up Lifecycle (Simplified)
-Imagine this as a "Grab/Lazada" process.
+### 2.1 The "Grab/Lazada" Flow (Simplified)
+How an order travels from a click to a completed transaction.
 
 ```mermaid
-graph TD
-    A[🛒 CUSTOMER: Selects & Pays] --> B[💾 SYSTEM: Saves Order as 'Pending']
-    B --> C[🕵️ ADMIN: Verifies Payment]
-    C --> D{Payment Valid?}
-    D -- Yes --> E[✅ DONE: Order Confirmed & Item Sent]
-    D -- No --> F[❌ REJECTED: Order Cancelled]
+graph LR
+    %% Classes
+    classDef step fill:#2d3436,stroke:#00b894,stroke-width:2px,color:#fff;
+    classDef highlight fill:#00b894,stroke:#fff,stroke-width:2px,color:#fff;
 
-    %% Real-time synchronization
-    E -. "Updates UI" .-> G((Customer Tracker: 100%))
+    A[🛒 CUSTOMER: Select & Pay]:::step
+    B[💾 SYSTEM: Log Pending]:::step
+    C[🕵️ ADMIN: Verify Payment]:::step
+    D[✅ DONE: Confirm & Send]:::highlight
+
+    A --> B
+    B --> C
+    C --> D
     
-    style A fill:#e1f5fe,stroke:#01579b
-    style C fill:#fff9c4,stroke:#fbc02d
-    style E fill:#c8e6c9,stroke:#2e7d32
+    D -.-> E((Tracker 100%)):::highlight
+
+    linkStyle default stroke:#0984e3,stroke-width:2px;
 ```
 
 ---
 
 ## 🗄️ 3. Database Architecture (ERD)
-The system utilizes a relational schema optimized for transaction integrity.
+The relational relationships between tables.
 
 ```mermaid
 erDiagram
-    USERS ||--o{ ORDERS : "places"
-    USERS ||--o{ SERVICE_REQUESTS : "requests"
-    PRODUCTS ||--|{ PRODUCT_SKUS : "contains"
+    %% Entities with high contrast
+    USERS ||--o{ ORDERS : "manages"
+    USERS ||--o{ SERVICE_REQUESTS : "logs"
+    PRODUCTS ||--|{ PRODUCT_SKUS : "has"
     
     USERS {
         int id PK
         string full_name
-        string email UK
-        string password_hash
         string role
     }
 
     ORDERS {
-        int id PK
-        string order_id UK
-        string game
-        string item
+        string order_id PK
         decimal total
         string status
         int customer_id FK
@@ -112,24 +108,19 @@ erDiagram
 
     PRODUCT_SKUS {
         int id PK
-        string game FK
         string item_name
-        decimal price
         int stock
     }
 
     SERVICE_REQUESTS {
-        int id PK
-        string reference_id UK
+        string reference_id PK
         string device
         string status
-        int customer_id FK
     }
 
     FEEDBACK {
         int id PK
         string name
-        string email
         string topic
         string message
     }
