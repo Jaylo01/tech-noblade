@@ -2,141 +2,118 @@
 
 > [!IMPORTANT]
 > **Technical Overview for Project Defense**
-> These diagrams are optimized for high-contrast viewing. For best results, use the **VS Code Markdown Preview** in Dark Mode.
+> These diagrams are optimized for **Premium High-Contrast** viewing. For best results, use the **VS Code Markdown Preview** in Dark Mode.
 
 ---
 
-## 🏗️ 1. System Architecture
-Our platform follows a decoupled **Three-Tier Architecture**, ensuring clear separation between User Interaction, Business Logic, and Data Persistence.
+## 🏗️ 1. System Architecture (3-Tier Model)
+Our platform is engineered with a strict **Separation of Concerns**, ensuring security and scalability.
 
 ```mermaid
 graph TD
-    %% Theme Definitions
-    classDef main fill:#1e272e,stroke:#00d2d3,stroke-width:2px,color:#fff;
-    classDef layer fill:#2f3640,stroke:#fbc531,stroke-width:2px,color:#fff;
+    %% Global Styles
+    classDef main fill:#1e272e,stroke:#00d2d3,stroke-width:3px,color:#fff;
+    classDef layer fill:#2d3436,stroke:#fbc531,stroke-width:2px,color:#fff;
     classDef accent fill:#6c5ce7,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef highlight fill:#eb4d4b,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef dbNode fill:#2d3436,stroke:#eb4d4b,stroke-width:3px,color:#fff;
 
-    %% Elements
+    %% Nodes
     User([👤 Customer User]):::accent
-    Admin([🔑 Admin Portal]):::highlight
+    Admin([🔑 Admin Portal]):::accent
 
-    subgraph "I. Presentation Layer (Frontend)"
-        UI[PHP/HTML5 UI Pages]:::layer
-        JS[JavaScript / AJAX Drivers]:::layer
+    subgraph "I. Presentation Layer"
+        UI[View: PHP & HTML5]:::layer
+        JS[Driver: JavaScript / AJAX]:::layer
     end
 
-    subgraph "II. Application Layer (Backend Logic)"
-        API[CRUD API Endpoints]:::layer
-        Guard[Authentication Guard]:::layer
+    subgraph "II. Application Layer"
+        API[Logic: CRUD API]:::layer
+        Guard[Auth: Session Guard]:::layer
     end
 
-    subgraph "III. Data Layer (Persistence)"
-        Conn[PDO Connection]:::layer
-        MySQL[(MySQL Database)]:::main
+    subgraph "III. Data Layer"
+        Conn[PDO Connection]:::dbNode
+        MySQL[(MySQL Server)]:::dbNode
     end
 
-    %% Logic Flow
+    %% Flow
     User & Admin --> UI
     UI --> JS
-    JS -- "JSON Async" --> API
+    JS -- "Async JSON" --> API
     API --> Guard
     Guard --> Conn
     Conn --> MySQL
 
-    %% Link Aesthetics
+    %% Link Styling
     linkStyle default stroke:#00d2d3,stroke-width:2px;
 ```
 
 ---
 
-## 🔄 2. System Process Flows
-
-### 2.1 Top-Up Lifecycle (Vertical Timeline)
-The specific lifecycle of a gaming transaction, showing the interaction between the system and human actors.
+## 🔄 2. Order Lifecycle Flow
+A simplified timeline of a gaming transaction from request to fulfillment.
 
 ```mermaid
-graph TD
-    %% Layout
-    classDef startNode fill:#00b894,color:#fff,stroke-width:0px;
-    classDef midNode fill:#2d3436,color:#fff,stroke:#dfe6e9;
-    classDef endNode fill:#0984e3,color:#fff,stroke-width:0px;
+graph LR
+    %% Theme
+    classDef nodeStyle fill:#1e272e,stroke:#00d2d3,stroke-width:2px,color:#fff;
+    classDef doneStyle fill:#00b894,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef lineStyle stroke-width:3px;
 
-    S([START: User Selects Product]):::startNode
+    A[🛒 CUSTOMER: Checkout]:::nodeStyle
+    B[💾 SYSTEM: Log Pending]:::nodeStyle
+    C[🕵️ ADMIN: Payment Check]:::nodeStyle
+    D[✅ SUCCESS: Delivery]:::doneStyle
+
+    A --> B
+    B --> C
+    C --> D
     
-    Order[1. System registers 'Pending' Order]:::midNode
-    Pay[2. User submits Payment Reference]:::midNode
-    Verify[3. Admin verifies Transaction]:::midNode
-    Final[4. System triggers Inventory Update]:::midNode
+    D -.-> E((Tracker UPDATED)):::doneStyle
 
-    Finish([FINISH: Customer Tracker at 100%]):::endNode
-
-    %% Connections
-    S --> Order
-    Order --> Pay
-    Pay --> Verify
-    Verify --> Final
-    Final --> Finish
-
-    %% Timeline Accents
-    linkStyle default stroke:#6c5ce7,stroke-width:3px;
+    linkStyle 0,1,2 stroke:#6c5ce7,stroke-width:3px;
 ```
 
 ---
 
-## 🗄️ 3. Data Architecture (Detailed ERD)
-A high-precision map of the relational database, including primary and foreign key constraints.
+## 🗄️ 3. Data Architecture (Visual ERD)
+High-fidelity representation of the relational database structure.
 
 ```mermaid
-erDiagram
+graph TD
+    %% Table Styles
+    classDef table fill:#2d3436,stroke:#fbc531,stroke-width:2px,color:#fff;
+    classDef primary fill:#eb4d4b,stroke:#fff,stroke-width:1px,color:#fff;
+    classDef linked fill:#0984e3,stroke:#fff,stroke-width:1px,color:#fff;
+
+    subgraph "Core: Users & Access"
+        USERS["TABLE: Users<br/>- id (PK)<br/>- full_name<br/>- email<br/>- role"]:::table
+    end
+
+    subgraph "Transactions: Orders"
+        ORDERS["TABLE: Orders<br/>- order_id (PK)<br/>- customer_id (FK)<br/>- game<br/>- status"]:::table
+    end
+
+    subgraph "Inventory: Products"
+        PRODUCTS["TABLE: Products<br/>- id (PK)<br/>- name (UK)<br/>- status"]:::table
+        SKUS["TABLE: Product_SKUs<br/>- id (PK)<br/>- game (FK)<br/>- stock"]:::table
+    end
+
+    subgraph "Support: Service & Feedback"
+        SR["TABLE: Service_Requests<br/>- reference_id (PK)<br/>- device<br/>- status"]:::table
+        FB["TABLE: Feedback<br/>- id (PK)<br/>- topic<br/>- message"]:::table
+    end
+
     %% Relationships
-    USERS ||--o{ ORDERS : "manages"
-    USERS ||--o{ SERVICE_REQUESTS : "logs"
-    PRODUCTS ||--|{ PRODUCT_SKUS : "defines"
-    
-    USERS {
-        int id PK
-        string full_name
-        string email UK
-        string role "admin|customer"
-    }
+    USERS -- "1:M" --> ORDERS
+    USERS -- "1:M" --> SR
+    PRODUCTS -- "1:M" --> SKUS
 
-    ORDERS {
-        string order_id PK
-        string game FK
-        decimal total
-        string status
-        int customer_id FK
-    }
-
-    PRODUCTS {
-        int id PK
-        string name UK
-        string status "Active|Inactive"
-    }
-
-    PRODUCT_SKUS {
-        int id PK
-        string game FK
-        string item_name
-        int stock
-        decimal price
-    }
-
-    SERVICE_REQUESTS {
-        string reference_id PK
-        string device
-        string status
-        int customer_id FK
-    }
-
-    FEEDBACK {
-        int id PK
-        string name
-        string topic
-        string message
-        datetime timestamp
-    }
+    %% Style Overrides
+    USERS:::primary
+    ORDERS:::linked
+    PRODUCTS:::primary
+    SR:::linked
 ```
 
 ---
