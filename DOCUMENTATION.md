@@ -1,100 +1,109 @@
 # 📑 Tech Noblade - Technical Documentation
 
-> [!NOTE]
-> Optimized for both **Light** and **Dark** modes. For a better experience, use the VS Code Markdown Preview.
+> [!IMPORTANT]
+> **Technical Overview for Project Defense**
+> These diagrams are optimized for high-contrast viewing. For best results, use the **VS Code Markdown Preview** in Dark Mode.
 
 ---
 
 ## 🏗️ 1. System Architecture
-Comprehensive view of our **Three-Tier Architecture**.
+Our platform follows a decoupled **Three-Tier Architecture**, ensuring clear separation between User Interaction, Business Logic, and Data Persistence.
 
 ```mermaid
 graph TD
-    %% Classes for Dark Mode Visibility
-    classDef frontend fill:#0984e3,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef logic fill:#6c5ce7,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef data fill:#2d3436,stroke:#fff,stroke-width:2px,color:#fff;
-    classDef actor fill:#fdcb6e,stroke:#333,stroke-width:2px,color:#333;
+    %% Theme Definitions
+    classDef main fill:#1e272e,stroke:#00d2d3,stroke-width:2px,color:#fff;
+    classDef layer fill:#2f3640,stroke:#fbc531,stroke-width:2px,color:#fff;
+    classDef accent fill:#6c5ce7,stroke:#fff,stroke-width:2px,color:#fff;
+    classDef highlight fill:#eb4d4b,stroke:#fff,stroke-width:2px,color:#fff;
 
     %% Elements
-    Customer([👤 Customer User]):::actor
-    Admin([🔑 Admin/Owner]):::actor
+    User([👤 Customer User]):::accent
+    Admin([🔑 Admin Portal]):::highlight
 
-    subgraph "Frontend Layer (Web UI)"
-        Index[index.php / Home]:::frontend
-        Dash[Dynamic Dashboards]:::frontend
+    subgraph "I. Presentation Layer (Frontend)"
+        UI[PHP/HTML5 UI Pages]:::layer
+        JS[JavaScript / AJAX Drivers]:::layer
     end
 
-    subgraph "Application Logic (PHP API)"
-        Security[Auth Guard]:::logic
-        CRUD[Order & Inventory Logic]:::logic
+    subgraph "II. Application Layer (Backend Logic)"
+        API[CRUD API Endpoints]:::layer
+        Guard[Authentication Guard]:::layer
     end
 
-    subgraph "Data Storage (SQL)"
-        DB[Database Connection]:::data
-        MySQL[(MySQL Server)]:::data
+    subgraph "III. Data Layer (Persistence)"
+        Conn[PDO Connection]:::layer
+        MySQL[(MySQL Database)]:::main
     end
 
-    %% Flow
-    Customer --> Index
-    Admin --> Index
-    Index --> Dash
-    Dash --> CRUD
-    CRUD --> Security
-    Security --> DB
-    DB --> MySQL
+    %% Logic Flow
+    User & Admin --> UI
+    UI --> JS
+    JS -- "JSON Async" --> API
+    API --> Guard
+    Guard --> Conn
+    Conn --> MySQL
 
-    %% Links styling
-    linkStyle default stroke:#00b894,stroke-width:2px;
+    %% Link Aesthetics
+    linkStyle default stroke:#00d2d3,stroke-width:2px;
 ```
 
 ---
 
 ## 🔄 2. System Process Flows
 
-### 2.1 The "Grab/Lazada" Flow (Simplified)
-How an order travels from a click to a completed transaction.
+### 2.1 Top-Up Lifecycle (Vertical Timeline)
+The specific lifecycle of a gaming transaction, showing the interaction between the system and human actors.
 
 ```mermaid
-graph LR
-    %% Classes
-    classDef step fill:#2d3436,stroke:#00b894,stroke-width:2px,color:#fff;
-    classDef highlight fill:#00b894,stroke:#fff,stroke-width:2px,color:#fff;
+graph TD
+    %% Layout
+    classDef startNode fill:#00b894,color:#fff,stroke-width:0px;
+    classDef midNode fill:#2d3436,color:#fff,stroke:#dfe6e9;
+    classDef endNode fill:#0984e3,color:#fff,stroke-width:0px;
 
-    A[🛒 CUSTOMER: Select & Pay]:::step
-    B[💾 SYSTEM: Log Pending]:::step
-    C[🕵️ ADMIN: Verify Payment]:::step
-    D[✅ DONE: Confirm & Send]:::highlight
-
-    A --> B
-    B --> C
-    C --> D
+    S([START: User Selects Product]):::startNode
     
-    D -.-> E((Tracker 100%)):::highlight
+    Order[1. System registers 'Pending' Order]:::midNode
+    Pay[2. User submits Payment Reference]:::midNode
+    Verify[3. Admin verifies Transaction]:::midNode
+    Final[4. System triggers Inventory Update]:::midNode
 
-    linkStyle default stroke:#0984e3,stroke-width:2px;
+    Finish([FINISH: Customer Tracker at 100%]):::endNode
+
+    %% Connections
+    S --> Order
+    Order --> Pay
+    Pay --> Verify
+    Verify --> Final
+    Final --> Finish
+
+    %% Timeline Accents
+    linkStyle default stroke:#6c5ce7,stroke-width:3px;
 ```
 
 ---
 
-## 🗄️ 3. Database Architecture (ERD)
-The relational relationships between tables.
+## 🗄️ 3. Data Architecture (Detailed ERD)
+A high-precision map of the relational database, including primary and foreign key constraints.
 
 ```mermaid
 erDiagram
-    %% Entities with high contrast
+    %% Relationships
     USERS ||--o{ ORDERS : "manages"
     USERS ||--o{ SERVICE_REQUESTS : "logs"
-    PRODUCTS ||--|{ PRODUCT_SKUS : "has"
+    PRODUCTS ||--|{ PRODUCT_SKUS : "defines"
     
     USERS {
         int id PK
         string full_name
-        string role
+        string email UK
+        string role "admin|customer"
     }
 
     ORDERS {
         string order_id PK
+        string game FK
         decimal total
         string status
         int customer_id FK
@@ -103,19 +112,22 @@ erDiagram
     PRODUCTS {
         int id PK
         string name UK
-        string status
+        string status "Active|Inactive"
     }
 
     PRODUCT_SKUS {
         int id PK
+        string game FK
         string item_name
         int stock
+        decimal price
     }
 
     SERVICE_REQUESTS {
         string reference_id PK
         string device
         string status
+        int customer_id FK
     }
 
     FEEDBACK {
@@ -123,6 +135,7 @@ erDiagram
         string name
         string topic
         string message
+        datetime timestamp
     }
 ```
 
